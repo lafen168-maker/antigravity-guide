@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antigravity 2.0 桌面版一站式教學指南 - Google DeepMind 智慧 Agent 開發平台</title>
-    <meta name="description" content="專為教師與學習者設計的 Antigravity 2.0 Windows 桌面安裝版教學網頁。探索三欄式 Agent-First 運作空間、Add Context 脈絡選單、右側 Artifacts 信任面板及互動式工作流模擬器。">
+    <meta name="description" content="專為教師與學習者設計的 Antigravity 2.0 Windows 桌面安裝版教學網頁。探索三欄式 Agent-First 運作空間、Add Context 脈絡選單、右側 Artifacts 信任面板、系統設定詳解及互動式工作流模擬器。">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,11 +27,11 @@
                 <ul>
                     <li><a href="#hero" class="nav-link active">首頁</a></li>
                     <li><a href="#concepts" class="nav-link">核心概念</a></li>
-                    <li><a href="#interface-layout" class="nav-link">介面佈局</a></li>
+                    <li><a href="#interface-layout" class="nav-link">介面導覽與設定</a></li>
                     <li><a href="#guide" class="nav-link">教學指南</a></li>
                     <li><a href="#templates" class="nav-link">Prompt範本</a></li>
                     <li><a href="#simulator" class="nav-link btn-simulator-nav">模擬器</a></li>
-                    <li><a href="#settings" class="nav-link">指令與設定</a></li>
+                    <li><a href="#settings" class="nav-link">指令手冊</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
@@ -181,124 +181,193 @@
             </div>
         </section>
 
-        <!-- 介面佈局與各項功能 -->
+        <!-- 介面配置與系統設定導覽 (UI Interactive Tour) -->
         <section id="interface-layout" class="section-padding section-light">
             <div class="container">
                 <div class="section-header text-center">
-                    <h2 class="section-title">官方桌面版三大佈局區塊</h2>
-                    <p class="section-subtitle">熟悉 Windows 獨立安裝版的介面配置，能大幅提升您的教學與開發效率。</p>
+                    <h2 class="section-title">官方桌面版：介面導覽與設定手冊</h2>
+                    <p class="section-subtitle">點選下方頁籤切換不同的桌面端畫面，點選畫面中的「閃爍標記」即可查看繁體中文的詳細欄位與設定解析。</p>
                 </div>
                 
-                <div class="surface-showcase">
-                    <!-- 左側控制按鈕 -->
-                    <div class="surface-controls">
-                        <button class="surface-btn active" data-target="layout-left">
-                            <span class="icon"><i class="fa-solid fa-folder-tree"></i></span>
-                            <span class="title">左側：專案探索區 (Projects Panel)</span>
-                            <span class="desc">管理專案脈絡，添加本地工作目錄</span>
-                        </button>
-                        <button class="surface-btn" data-target="layout-center">
-                            <span class="icon"><i class="fa-solid fa-comments"></i></span>
-                            <span class="title">中間：對話與 Add Context 區</span>
-                            <span class="desc">Prompt 主對話，注入多元上下文內容</span>
-                        </button>
-                        <button class="surface-btn" data-target="layout-right">
-                            <span class="icon"><i class="fa-solid fa-file-shield"></i></span>
-                            <span class="title">右側：Artifacts 產物區</span>
-                            <span class="desc">審查計畫、監控任務與 E2E 驗證</span>
-                        </button>
+                <div class="tour-showcase">
+                    <!-- 頂部切換按鈕 -->
+                    <div class="tour-tabs">
+                        <button class="tour-tab-btn active" data-tour="tour-projects"><i class="fa-solid fa-folder-tree"></i> 1. 專案探索畫面</button>
+                        <button class="tour-tab-btn" data-tour="tour-chat"><i class="fa-solid fa-comments"></i> 2. 對話與脈絡注入</button>
+                        <button class="tour-tab-btn" data-tour="tour-artifacts"><i class="fa-solid fa-file-shield"></i> 3. 產物與核准畫面</button>
+                        <button class="tour-tab-btn" data-tour="tour-settings"><i class="fa-solid fa-sliders"></i> 4. 系統設定面板</button>
                     </div>
                     
-                    <!-- 右側內容卡片 -->
-                    <div class="surface-display">
-                        <!-- 1. 左側專案探索區 -->
-                        <div id="layout-left" class="surface-panel active">
-                            <div class="panel-media">
-                                <div class="mock-window layout-media-window">
-                                    <div class="window-body">
-                                        <div class="project-mock-tree font-primary">
-                                            <div class="project-root"><i class="fa-solid fa-cubes"></i> PROJECT: Class_Manager</div>
-                                            <div class="project-folder"><i class="fa-solid fa-folder-open"></i> frontend/</div>
-                                            <div class="project-file selected"><i class="fa-brands fa-html5"></i> index.html</div>
-                                            <div class="project-file"><i class="fa-square-js"></i> app.js</div>
-                                            <div class="project-folder"><i class="fa-solid fa-folder"></i> tests/</div>
-                                            <div class="project-root margin-top-md"><i class="fa-solid fa-database"></i> sqlite-db/ (Context Folder)</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-text">
-                                <h3>左側專案探索區：管理全域脈絡</h3>
-                                <p>在桌面應用程式中，整個開發是以「Project」為主體，您可以隨時：</p>
-                                <ul class="check-list">
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>添加本地工作資料夾</strong>：隨意選取您的電腦硬碟路徑並載入。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>跨目錄感知</strong>：即使專案包含了前端資料夾與後端資料夾，Agent 也能同時理解並同步修改。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>快速檔案點選</strong>：按一下檔案可即時在 Agent 工作流中設為主要焦點。</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <!-- 導覽主體區 (左右排列) -->
+                    <div class="tour-display-grid">
                         
-                        <!-- 2. 中間對話與 Add Context 區 -->
-                        <div id="layout-center" class="surface-panel">
-                            <div class="panel-media">
-                                <div class="mock-window layout-media-window">
-                                    <div class="window-body font-primary flex-column justify-between p-0 h-100">
-                                        <div class="chat-body-mock">
-                                            <div class="bubble-mock agent">
-                                                請告訴我您想建立或修改什麼專案？您可以點擊下方選單添加上下文檔案。
+                        <!-- 左側：虛擬 App 介面展示區 (帶有熱點標記) -->
+                        <div class="tour-visual-panel">
+                            <div class="mock-window tour-app-window">
+                                <div class="window-header">
+                                    <div class="window-controls"><span class="control close"></span><span class="control minimize"></span><span class="control maximize"></span></div>
+                                    <div class="window-title font-outfit" id="tour-window-title">Antigravity 2.0 - Projects Manager</div>
+                                </div>
+                                <div class="tour-window-body">
+                                    
+                                    <!-- 畫面 1: 專案探索 -->
+                                    <div id="tour-projects" class="tour-screen active">
+                                        <div class="mock-projects-view">
+                                            <div class="mock-proj-header">
+                                                <span>Active Projects</span>
+                                                <button class="btn-mock-action"><i class="fa-solid fa-plus"></i> New Project</button>
+                                                <!-- 熱點 1：新增專案 -->
+                                                <span class="hotspot" data-id="p1" style="top: 25px; right: 20px;">1</span>
+                                            </div>
+                                            <div class="mock-proj-list">
+                                                <div class="mock-proj-card active">
+                                                    <div class="proj-card-title"><i class="fa-solid fa-folder-open"></i> class-attendance-system</div>
+                                                    <div class="proj-card-path">Path: <code>C:\\AIagent_Antigravity</code></div>
+                                                    <div class="proj-card-meta">
+                                                        <span><i class="fa-solid fa-code-branch"></i> main</span>
+                                                        <span><i class="fa-solid fa-file"></i> 3 files</span>
+                                                    </div>
+                                                    <!-- 熱點 2：工作路徑與環境 -->
+                                                    <span class="hotspot" data-id="p2" style="top: 25px; left: 180px;">2</span>
+                                                </div>
+                                                <div class="mock-proj-card">
+                                                    <div class="proj-card-title"><i class="fa-solid fa-folder"></i> student-test-runner</div>
+                                                    <div class="proj-card-path">Path: <code>C:\\Users\\lafen\\projects\\testing</code></div>
+                                                </div>
+                                            </div>
+                                            <div class="mock-proj-footer">
+                                                <!-- 熱點 3：添加資料夾脈絡 -->
+                                                <button class="btn-mock-secondary"><i class="fa-solid fa-folder-plus"></i> Add Context Folder</button>
+                                                <span class="hotspot" data-id="p3" style="bottom: 25px; left: 45%;">3</span>
                                             </div>
                                         </div>
-                                        <!-- Add Context 下拉選單展示 -->
-                                        <div class="add-context-dropdown-mock font-primary">
-                                            <div class="dropdown-title">Add Context</div>
-                                            <div class="dropdown-item"><i class="fa-regular fa-image"></i> Media <span class="dropdown-hint">上傳圖片或錄影</span></div>
-                                            <div class="dropdown-item"><i class="fa-solid fa-at"></i> Mentions <span class="dropdown-hint">引用檔案、符號或對話</span></div>
-                                            <div class="dropdown-item"><i class="fa-solid fa-bolt"></i> Actions <span class="dropdown-hint">執行快捷動作</span></div>
-                                            <div class="dropdown-item"><i class="fa-brands fa-chrome"></i> Browser <span class="dropdown-hint">連結當前網頁或截圖</span></div>
+                                    </div>
+                                    
+                                    <!-- 畫面 2: 對話與脈絡 -->
+                                    <div id="tour-chat" class="tour-screen">
+                                        <div class="mock-chat-view flex-column">
+                                            <div class="mock-chat-header">
+                                                <span class="chat-status"><span class="pulse-dot active"></span> Actuator Active</span>
+                                                <span class="chat-model-indicator">Model: Gemini 3.5 Pro</span>
+                                                <!-- 熱點 1：運作狀態指示器 -->
+                                                <span class="hotspot" data-id="c1" style="top: 15px; left: 110px;">1</span>
+                                            </div>
+                                            <div class="mock-chat-body">
+                                                <div class="mock-msg u">
+                                                    請幫我分析購物車程式碼。
+                                                </div>
+                                                <div class="mock-msg a">
+                                                    <i class="fa-solid fa-robot"></i>
+                                                    已成功讀取工作區的檔案。請告訴我您希望我進行重構還是錯誤修正？
+                                                </div>
+                                            </div>
+                                            <div class="mock-chat-input-container">
+                                                <div class="mock-input-box">
+                                                    <!-- 熱點 2：Add Context 脈絡按鈕 -->
+                                                    <button class="mock-input-action-btn"><i class="fa-solid fa-plus"></i> Add Context</button>
+                                                    <span class="hotspot" data-id="c2" style="bottom: 25px; left: 80px;">2</span>
+                                                    
+                                                    <span class="mock-input-text">輸入 / 觸發斜線快捷指令...</span>
+                                                    
+                                                    <!-- 熱點 3：斜線指令輔助 -->
+                                                    <span class="hotspot" data-id="c3" style="bottom: 25px; right: 80px;">3</span>
+                                                    <button class="mock-send-btn"><i class="fa-solid fa-arrow-up"></i></button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    
+                                    <!-- 畫面 3: 產物與核准 -->
+                                    <div id="tour-artifacts" class="tour-screen">
+                                        <div class="mock-artifacts-view">
+                                            <div class="mock-art-header">
+                                                <span class="tab-item active">implementation_plan.md</span>
+                                                <span class="tab-item">task.md</span>
+                                                <span class="tab-item">Browser (0)</span>
+                                                <!-- 熱點 1：Artifact 頁籤切換 -->
+                                                <span class="hotspot" data-id="a1" style="top: 15px; left: 45%;">1</span>
+                                            </div>
+                                            <div class="mock-art-body font-fira-code">
+                                                <h4># Proposed Changes (實作計畫)</h4>
+                                                <div class="mock-code-block-plan">
+                                                    <span class="t-success">[MODIFY] src/cart.js</span><br>
+                                                    - 重構 calculateTotal() 函數<br>
+                                                    - 加入繁體中文 JSDoc 註解
+                                                </div>
+                                                <!-- 熱點 2：雙向留言回饋機制 -->
+                                                <div class="mock-comment-box">
+                                                    <i class="fa-solid fa-comment-dots"></i> <strong>雙向回饋註解：</strong>選取計畫文字或網頁截圖，可直接留言讓 Agent 進行修改。
+                                                    <span class="hotspot" data-id="a2" style="bottom: 100px; right: 20px;">2</span>
+                                                </div>
+                                                <!-- 熱點 3：Approve Gate 審查閘門 -->
+                                                <div class="mock-gate-action">
+                                                    <button class="btn btn-success btn-sm btn-block">Approve (核准並執行)</button>
+                                                    <span class="hotspot" data-id="a3" style="bottom: 20px; left: 50%;">3</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 畫面 4: 系統設定面板 -->
+                                    <div id="tour-settings" class="tour-screen">
+                                        <div class="mock-settings-view">
+                                            <div class="setting-item-row">
+                                                <div class="setting-info">
+                                                    <div class="setting-name">模型選擇 (Model Selection)</div>
+                                                    <div class="setting-desc">挑選執行任務的 Gemini 核心模型。</div>
+                                                </div>
+                                                <select class="mock-select"><option>Gemini 3.5 Pro (推薦規劃用)</option></select>
+                                                <!-- 熱點 1：模型選擇 -->
+                                                <span class="hotspot" data-id="s1" style="top: 25px; right: 20px;">1</span>
+                                            </div>
+                                            <div class="setting-item-row">
+                                                <div class="setting-info">
+                                                    <div class="setting-name">沙盒與權限設定 (Sandbox Rules)</div>
+                                                    <div class="setting-desc">指定 Agent 的本機目錄讀寫與指令執行權限。</div>
+                                                </div>
+                                                <div class="mock-checkbox-group">
+                                                    <label><input type="checkbox" checked> 限制專案目錄寫入</label>
+                                                    <label><input type="checkbox" checked> 執行 terminal 指令需人工審查</label>
+                                                </div>
+                                                <!-- 熱點 2：沙盒與權限 -->
+                                                <span class="hotspot" data-id="s2" style="top: 105px; right: 20px;">2</span>
+                                            </div>
+                                            <div class="setting-item-row">
+                                                <div class="setting-info">
+                                                    <div class="setting-name">MCP 擴充工具 (Model Context Protocol)</div>
+                                                    <div class="setting-desc">連結外部 MCP 工具伺服器（如 SQLite 資料庫）。</div>
+                                                </div>
+                                                <button class="btn-mock-secondary btn-sm">Configure MCP</button>
+                                                <!-- 熱點 3：MCP 協定 -->
+                                                <span class="hotspot" data-id="s3" style="top: 185px; right: 20px;">3</span>
+                                            </div>
+                                            <div class="setting-item-row">
+                                                <div class="setting-info">
+                                                    <div class="setting-name">自訂規則 (Custom System Guidelines)</div>
+                                                    <div class="setting-desc">定義對話全域引導規則（例如強制以 Python 編寫）。</div>
+                                                </div>
+                                                <div class="mock-textbox-desc">Always use Traditional Chinese...</div>
+                                                <!-- 熱點 4：自訂規則 -->
+                                                <span class="hotspot" data-id="s4" style="bottom: 35px; right: 20px;">4</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
-                            </div>
-                            <div class="panel-text">
-                                <h3>中間區塊：Prompt 與 Add Context</h3>
-                                <p>這是您向 Agent 發號施令的主戰場，亮點在於**靈活的上下文注入選單**：</p>
-                                <ul class="check-list">
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Media (媒體)</strong>：上傳有問題的畫面對照圖，讓 AI 用眼睛看著修。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Mentions (提及)</strong>：使用 `@` 符號直接在 Prompt 提及專案下的某個程式檔案，免去上傳全部代碼。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Browser (瀏覽器)</strong>：與當前網頁整合，將網址、DOM 元件狀態等即時灌入對話。</li>
-                                </ul>
                             </div>
                         </div>
                         
-                        <!-- 3. 右側 Artifacts 產物區 -->
-                        <div id="layout-right" class="surface-panel">
-                            <div class="panel-media">
-                                <div class="mock-window layout-media-window">
-                                    <div class="window-header">
-                                        <div class="tabs-container">
-                                            <span class="tab-title-mock active">implementation_plan.md</span>
-                                        </div>
-                                    </div>
-                                    <div class="window-body font-fira-code">
-                                        <div style="background-color: rgba(99,102,241,0.06); border: 1px solid var(--accent-indigo); padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem; margin-bottom: 0.5rem;">
-                                            <i class="fa-solid fa-comment-dots"></i> <strong>教師的批註回饋：</strong><br>
-                                            "李老師：請把按鈕底色改成圓角，比較美觀。"
-                                        </div>
-                                        <div>- [MODIFY] index.html</div>
-                                        <div class="t-success">- [NEW] assets/button.png</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-text">
-                                <h3>右側產物區：交付與審查的信任層</h3>
-                                <p>右側面板用來實時呈現 Agent 產生出的重要文件與測試畫面，也是教學上最重要的「互動回饋點」：</p>
-                                <ul class="check-list">
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>實作計畫 (Plan)</strong>：列出所有修改清單，使用者可以點擊同意，或是留下註解，Agent 就會自動修正計畫後再動工。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>工作清單 (Task List)</strong>：以 `task.md` 實時展示目前打勾與進行中的檔案修改，掌握開發節奏。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>視覺驗證 (Visual Proof)</strong>：直接在此面板呈現 Agent 自主開啟瀏覽器所進行的網頁測試成果與 E2E 錄影。</li>
-                                </ul>
+                        <!-- 右側：繁體中文註記與說明看板 (動態更新) -->
+                        <div class="tour-detail-panel card">
+                            <div class="detail-header-tag"><i class="fa-solid fa-circle-info"></i> 欄位功能詳解</div>
+                            <h3 id="tour-detail-title">請點選左側畫面中的閃爍標記</h3>
+                            <div class="tour-detail-body" id="tour-detail-body">
+                                <p class="text-secondary">
+                                    當您切換上方不同的介面板塊時，左邊的桌面視窗會更換為對應的畫面。點擊畫面上的數字標記，即可在此處查看到關於該設定項目的功能說明、推薦設定以及教學應用建議。
+                                </p>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>

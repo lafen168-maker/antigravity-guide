@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Antigravity 一站式介紹網頁 - 全域 CSS 樣式表 (更新為桌面版 2.0 版)
+   Antigravity 一站式介紹網頁 - 全域 CSS 樣式表 (更新為桌面版 2.0 版 + 互動導覽)
    ========================================================================== */
 
 /* 1. 變數與主題定義 */
@@ -597,6 +597,10 @@ body.light-theme #theme-toggle:hover {
     gap: 0.4rem;
 }
 
+.project-item.active {
+    color: var(--accent-indigo);
+}
+
 .file-item {
     color: #8b949e;
     padding-left: 0.75rem;
@@ -797,467 +801,521 @@ body.light-theme #theme-toggle:hover {
     font-size: 0.95rem;
 }
 
-/* 8. 三大介面展示區 (Surface Showcase) */
-.surface-showcase {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    align-items: flex-start;
-}
-
-@media (min-width: 992px) {
-    .surface-showcase {
-        grid-template-columns: 350px 1fr;
-    }
-}
-
-.surface-controls {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.surface-btn {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    background: var(--bg-secondary);
+/* ==========================================================================
+   8. 互動式介面與設定導覽特定樣式 (UI Tour)
+   ========================================================================== */
+.tour-showcase {
+    background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.tour-tabs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.tour-tab-btn {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.85rem 1rem;
     border-radius: var(--radius-md);
     cursor: pointer;
-    text-align: left;
-    transition: all var(--transition-normal);
-}
-
-.surface-btn .icon {
-    width: 45px;
-    height: 45px;
-    border-radius: var(--radius-sm);
-    background: var(--bg-tertiary);
-    color: var(--text-secondary);
-    font-size: 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-normal);
-}
-
-.surface-btn .title {
-    display: block;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--text-primary);
-    margin-bottom: 0.25rem;
-}
-
-.surface-btn .desc {
-    display: block;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-}
-
-.surface-btn:hover {
-    border-color: var(--border-color-active);
-    transform: translateX(4px);
-}
-
-.surface-btn.active {
-    background-color: var(--accent-indigo);
-    border-color: var(--accent-indigo);
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.25);
-}
-
-.surface-btn.active .icon {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-}
-
-.surface-btn.active .title,
-.surface-btn.active .desc {
-    color: #ffffff;
-}
-
-.surface-display {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--card-shadow);
-    min-height: 420px;
-}
-
-.surface-panel {
-    display: none;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2.5rem;
-    align-items: center;
-}
-
-@media (min-width: 768px) {
-    .surface-panel {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-.surface-panel.active {
-    display: grid;
-    animation: fadeIn 0.4s ease-in-out;
-}
-
-.panel-media {
-    width: 100%;
-}
-
-.panel-text h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.panel-text p {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-}
-
-.check-list {
-    list-style: none;
-}
-
-.check-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.75rem;
-}
-
-.check-list li i {
-    color: var(--accent-emerald);
-    margin-top: 3px;
-}
-
-/* 平台左側/中側/右側配置示意圖特定視窗 */
-.layout-media-window {
-    background-color: #0b0f19;
-    height: 250px;
-    border-color: rgba(255,255,255,0.08);
-}
-
-.project-mock-tree {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.project-root {
-    color: #fff;
-    font-weight: 700;
-}
-
-.project-folder {
-    color: var(--accent-indigo);
-    padding-left: 0.75rem;
-}
-
-.project-file {
-    padding-left: 1.5rem;
-}
-
-.project-file.selected {
-    color: var(--accent-pink);
-    font-weight: bold;
-}
-
-.chat-body-mock {
-    flex-grow: 1;
-    padding: 0.75rem;
-}
-
-.bubble-mock {
-    font-size: 0.75rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: var(--radius-sm);
-    max-width: 90%;
-    line-height: 1.4;
-}
-
-.bubble-mock.agent {
-    background-color: #1f2937;
-    color: #e5e7eb;
-}
-
-/* Add Context 下拉選單 */
-.add-context-dropdown-mock {
-    background-color: #161b26;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-
-.dropdown-title {
-    font-size: 0.65rem;
-    font-weight: bold;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    padding-left: 0.4rem;
-}
-
-.dropdown-item {
-    font-size: 0.75rem;
-    padding: 0.3rem 0.5rem;
-    border-radius: 4px;
-    color: var(--text-primary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.dropdown-item i {
-    color: var(--accent-purple);
-}
-
-.dropdown-hint {
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    margin-left: auto;
-}
-
-.tab-title-mock {
-    font-size: 0.75rem;
-    font-weight: bold;
-    color: var(--accent-indigo);
-    border-bottom: 2px solid var(--accent-indigo);
-    padding: 0.5rem 0.75rem;
-    display: inline-block;
-}
-
-/* 9. 時間軸 (Timeline) */
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    background-color: var(--border-color);
-    top: 0;
-    bottom: 0;
-    left: 40px;
-}
-
-.timeline-item {
-    padding: 1.5rem 0 3rem 0;
-    position: relative;
-    display: flex;
-    gap: 2.5rem;
-}
-
-.timeline-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: var(--radius-full);
-    background-color: var(--bg-secondary);
-    border: 2px solid var(--border-color);
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    z-index: 1;
-    flex-shrink: 0;
-    transition: all var(--transition-normal);
-}
-
-.timeline-item:hover .timeline-icon {
-    border-color: var(--accent-indigo);
-    color: var(--accent-indigo);
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
-}
-
-.timeline-content {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    width: 100%;
-}
-
-.step-number {
-    font-family: var(--font-outfit);
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--accent-indigo);
-    letter-spacing: 1px;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-content h3 {
-    font-size: 1.35rem;
-    margin-bottom: 1rem;
-}
-
-.timeline-content p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-}
-
-.example-quote {
-    background-color: var(--bg-tertiary);
-    border-left: 4px solid var(--accent-pink);
-    padding: 1rem;
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-}
-
-.bullet-list {
-    padding-left: 1.25rem;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-}
-
-.bullet-list li {
-    margin-bottom: 0.5rem;
-}
-
-/* 10. 教學範本卡片 (Tabs) */
-.tab-container {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--card-shadow);
-}
-
-.tab-header {
-    display: flex;
-    border-bottom: 1px solid var(--border-color);
-    background-color: var(--bg-tertiary);
-    overflow-x: auto;
-}
-
-.tab-btn {
-    flex: 1;
-    min-width: 180px;
-    padding: 1.25rem 1rem;
-    background: none;
-    border: none;
-    color: var(--text-secondary);
     font-family: var(--font-primary);
     font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     transition: all var(--transition-fast);
 }
 
-.tab-btn:hover {
+.tour-tab-btn:hover {
     color: var(--text-primary);
-    background-color: rgba(255, 255, 255, 0.02);
+    border-color: var(--border-color-active);
 }
 
-.tab-btn.active {
-    color: var(--accent-indigo);
-    background-color: var(--bg-secondary);
-    box-shadow: inset 0 -3px 0 var(--accent-indigo);
+.tour-tab-btn.active {
+    background: var(--gemini-gradient);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
 }
 
-.tab-content {
-    padding: 2.5rem;
+/* 左右排版 */
+.tour-display-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
 }
 
-.tab-panel {
+@media (min-width: 992px) {
+    .tour-display-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+    }
+}
+
+.tour-visual-panel {
+    width: 100%;
+}
+
+.tour-app-window {
+    background-color: #0b0f19;
+    height: 380px;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.tour-window-body {
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+    height: 100%;
+}
+
+.tour-screen {
     display: none;
-}
-
-.tab-panel.active {
-    display: block;
-    animation: fadeIn 0.4s ease-in-out;
-}
-
-.tab-desc {
-    margin-bottom: 1.5rem;
-}
-
-.tab-desc h4 {
-    font-size: 1.15rem;
-    margin-bottom: 0.5rem;
-}
-
-.tab-desc p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.code-container-wrapper {
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
-.code-header {
-    background-color: var(--bg-tertiary);
-    padding: 0.75rem 1.25rem;
+.tour-screen.active {
+    display: block;
+    animation: fadeIn var(--transition-fast) ease-in-out;
+}
+
+/* 熱點標籤 (Hotspots) */
+.hotspot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-full);
+    background-color: var(--accent-pink);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-outfit);
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(236, 72, 153, 0.6);
+    animation: pulseRing 1.5s infinite ease-in-out;
+}
+
+.hotspot.active {
+    background-color: var(--accent-indigo);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.8);
+    transform: scale(1.15);
+}
+
+@keyframes pulseRing {
+    0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(236, 72, 153, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+}
+
+/* 虛擬視窗佈局的樣式細化 */
+
+/* 1. Projects mock */
+.mock-projects-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: space-between;
+    background-color: #0d111c;
+}
+
+.mock-proj-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    font-weight: 700;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 0.5rem;
+    position: relative;
 }
 
-.btn-copy {
-    background: none;
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    padding: 0.35rem 0.75rem;
-    border-radius: var(--radius-sm);
+.btn-mock-action {
+    background: var(--gemini-gradient);
+    border: none;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 0.8rem;
+}
+
+.mock-proj-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-grow: 1;
+}
+
+.mock-proj-card {
+    background-color: #161b26;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 0.75rem;
+    position: relative;
+}
+
+.mock-proj-card.active {
+    border-color: var(--accent-indigo);
+    background-color: rgba(99, 102, 241, 0.04);
+}
+
+.proj-card-title {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 0.2rem;
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    transition: all var(--transition-fast);
 }
 
-.btn-copy:hover {
-    border-color: var(--text-primary);
-    color: var(--text-primary);
+.proj-card-path {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    margin-bottom: 0.4rem;
 }
 
-.btn-copy.copied {
-    background-color: var(--accent-emerald);
-    border-color: var(--accent-emerald);
-    color: #ffffff;
+.proj-card-meta {
+    display: flex;
+    gap: 0.75rem;
+    color: var(--text-secondary);
 }
 
-.code-container-wrapper pre {
+.proj-card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.mock-proj-footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 0.75rem;
+    text-align: center;
+    position: relative;
+}
+
+.btn-mock-secondary {
+    background-color: #21262d;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #c9d1d9;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* 2. Chat mock */
+.mock-chat-view {
+    height: 100%;
+    background-color: #0d111c;
+}
+
+.mock-chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background-color: #111520;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    position: relative;
+}
+
+.chat-status {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.mock-chat-body {
+    flex-grow: 1;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.mock-msg {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    max-width: 80%;
+    line-height: 1.4;
+}
+
+.mock-msg.u {
+    background: var(--sim-chat-user-bg);
+    color: #fff;
+    align-self: flex-end;
+}
+
+.mock-msg.a {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    align-self: flex-start;
+    display: flex;
+    gap: 0.3rem;
+}
+
+.mock-chat-input-container {
+    padding: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+}
+
+.mock-input-box {
+    background-color: #161b26;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    position: relative;
+}
+
+.mock-input-action-btn {
+    background-color: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    color: var(--accent-purple);
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    cursor: pointer;
+}
+
+.mock-input-text {
+    color: var(--text-muted);
+    flex-grow: 1;
+    padding-left: 0.5rem;
+}
+
+.mock-send-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+}
+
+/* 3. Artifacts mock */
+.mock-artifacts-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #0e1322;
+    padding: 0.75rem;
+}
+
+.mock-art-header {
+    display: flex;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 0.4rem;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.tab-item {
+    color: var(--text-secondary);
+}
+
+.tab-item.active {
+    color: var(--accent-indigo);
+    border-bottom: 2px solid var(--accent-indigo);
+    padding-bottom: 0.2rem;
+}
+
+.mock-art-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.75rem;
+    position: relative;
+}
+
+.mock-art-body h4 {
+    font-size: 0.8rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+}
+
+.mock-code-block-plan {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    color: #8b949e;
     background-color: #0b0f19;
-    padding: 1.5rem;
-    overflow-x: auto;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.mock-comment-box {
+    background-color: rgba(99,102,241,0.05);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 4px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+
+.mock-gate-action {
+    margin-top: auto;
+    position: relative;
+}
+
+/* 4. Settings mock */
+.mock-settings-view {
+    height: 100%;
+    background-color: #0b0f19;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    overflow-y: auto;
+}
+
+.setting-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    padding-bottom: 0.6rem;
+    position: relative;
+}
+
+.setting-item-row:last-child {
+    border-bottom: none;
+}
+
+.setting-info {
+    max-width: 60%;
+}
+
+.setting-name {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.setting-desc {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+}
+
+.mock-select {
+    background-color: #161b26;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.65rem;
+}
+
+.mock-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+}
+
+.mock-checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.mock-textbox-desc {
+    background-color: #161b26;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+}
+
+/* 右側說明看板樣式 */
+.tour-detail-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 250px;
+    justify-content: flex-start;
+}
+
+.detail-header-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-purple);
+    background-color: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+#tour-detail-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
     margin: 0;
 }
 
-.code-container-wrapper code {
-    color: #e5e7eb;
-    font-size: 0.875rem;
-    white-space: pre;
-    line-height: 1.7;
+.tour-detail-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.tour-detail-body p {
+    margin-bottom: 0.75rem;
+}
+
+.tour-detail-body strong {
+    color: #fff;
+}
+
+.tour-detail-body ul {
+    padding-left: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.tour-detail-body li {
+    margin-bottom: 0.3rem;
 }
 
 /* ==========================================================================
@@ -1365,18 +1423,6 @@ select:focus {
 .sim-status-value.running { background-color: rgba(59, 130, 246, 0.15); color: var(--accent-blue); animation: pulseGlow 1.5s infinite; }
 .sim-status-value.waiting { background-color: rgba(245, 158, 11, 0.15); color: var(--accent-amber); animation: pulseGlowAmber 1.5s infinite; }
 .sim-status-value.success { background-color: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); }
-
-@keyframes pulseGlow {
-    0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
-    70% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
-}
-
-@keyframes pulseGlowAmber {
-    0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
-    70% { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
-}
 
 /* 模擬桌面應用程式外框 (Windows Desktop Layout) */
 .sim-desktop-app {
@@ -1615,11 +1661,6 @@ select:focus {
     animation: dropdownSlideUp 0.2s ease-out forwards;
 }
 
-@keyframes dropdownSlideUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 .context-item {
     font-size: 0.8rem;
     padding: 0.5rem 0.75rem;
@@ -1708,7 +1749,6 @@ select:focus {
 }
 
 @media (max-width: 991px) {
-    /* 在小螢幕下右側欄自適應，或在模擬器中進行換行，為了完美展示 3 欄，我們在 css 確保 1200px 以下右側欄可折疊或自適應 */
     .sim-col-right {
         width: 100%;
         height: 350px;
@@ -1867,7 +1907,7 @@ select:focus {
     font-size: 1rem;
 }
 
-/* 代碼 Diff 內層 */
+/* 程式碼對比 */
 .diff-rendered-content {
     flex-grow: 1;
     overflow-y: auto;
@@ -1880,7 +1920,7 @@ select:focus {
     border: 1px solid rgba(255,255,255,0.04);
 }
 
-/* 虛擬瀏覽器內層 */
+/* 虛擬瀏覽器 */
 .sim-browser-bar {
     background-color: var(--bg-tertiary);
     border-bottom: 1px solid var(--border-color);
