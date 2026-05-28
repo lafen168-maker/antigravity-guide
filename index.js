@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Antigravity 一站式介紹網頁 - 核心 JavaScript 邏輯
+   Antigravity 一站式介紹網頁 - 核心 JavaScript 邏輯 (更新為桌面版 2.0 版)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
 
     window.addEventListener('scroll', () => {
-        // 頂部模糊背景加深
         if (window.scrollY > 20) {
             header.style.backgroundColor = 'var(--glass-bg)';
             header.style.boxShadow = 'var(--nav-shadow)';
@@ -39,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.backgroundColor = 'var(--glass-bg)';
         }
 
-        // 依滾動距離更新 Active Nav Link
         let currentSectionId = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 100;
@@ -59,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================================================
-    // 3. Tabs 切換功能 (三大介面與 Prompt 範本)
+    // 3. Tabs 切換功能 (三大介面配置與 Prompt 範本)
     // ==========================================================================
     
-    // 三大介面 Tabs
+    // 三大佈局區塊 Tabs
     const surfaceButtons = document.querySelectorAll('.surface-btn');
     const surfacePanels = document.querySelectorAll('.surface-panel');
 
@@ -125,17 +123,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================================================
-    // 5. 智慧 Agent 互動模擬器狀態機
+    // 5. Antigravity 2.0 智慧模擬器狀態機 (三欄式佈局)
     // ==========================================================================
     
     // 模擬情境數據定義
     const SCENARIOS = {
         attendance: {
+            projectName: 'class-attendance-system',
             goalText: '請建立一個繁體中文的班級出缺席登記網頁，需具備新增學生、勾選出勤狀態（出席、遲到、缺席）以及統計圖表功能。介面使用深色高質感玻璃擬態設計。',
             planMD: `
 # [NEW] 班級出缺席登記網頁實作計畫
 
-本計畫旨在為高三乙班建立一個網頁版的出缺席登記教具。支援動態新增名單、即時統計與視覺化回報。
+本計畫旨在建立一個網頁版出缺席登記系統。支援動態名單登載與即時狀態統計。
 
 ## 擬修改與新建的檔案
 *   **[NEW] [index.html](file:///c:/AIagent_Antigravity/attendance/index.html)**: 建立玻璃擬態的 APP 容器、學生名單 DOM 及統計表格。
@@ -147,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     - 啟動 localhost 伺服器並載入頁面。
     - 模擬滑鼠點擊出勤按鈕，檢查狀態值是否即時變更。
 2.  **視覺與響應式**:
-    - 確保在手機尺寸 (375x812) 下，名單表格可自動滾動，按鈕不易誤觸。
+    - 確保在手機尺寸 (375x812) 下，名單表格可自動滾動。
             `,
             diffCode: `
 <span class="c-num">1</span> <span class="c-tag">&lt;div</span> <span class="c-attr">class</span>=<span class="c-str">"mock-app-attendance"</span><span class="c-tag">&gt;</span>
@@ -209,6 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `
         },
         calculator: {
+            projectName: 'student-cart-project',
             goalText: '請分析並重構目前專案中的購物車金額計算邏輯 (cart.js)。學生原始的寫法使用了重複的 nested if-else。請改用更具函數式風格的陣列 reduce 方法重構，並在所有函式加上繁體中文 JSDoc 註解。',
             planMD: `
 # [MODIFY] 購物車代碼重構計畫
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ## 驗證計畫
 1.  **單元測試**:
     - 撰寫本機測試腳本 <code>test_cart.js</code>。
-    - 模擬一般商品、書籍折價商品及邊界極限值（如空購物車），比對重構前與重構後的金額是否 100% 一致。
+    - 模擬一般商品、書籍折價商品及邊界極限值，比對重構前與重構後的金額是否 100% 一致。
             `,
             diffCode: `
 <span class="c-num">1</span> <span class="c-muted">/**</span>
@@ -265,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `
         },
         'rwd-test': {
+            projectName: 'school-homepage-check',
             goalText: '請為本機運行的網頁 (localhost:3000) 執行響應式排版測試。需要在 1920x1080、768x1024 與 375x812 解析度下模擬瀏覽，自動截圖存檔，並驗證行動端的漢堡選單是否能正常運作。',
             planMD: `
 # [NEW] 響應式介面驗證計畫
@@ -274,13 +275,12 @@ document.addEventListener('DOMContentLoaded', () => {
 ## 擬使用工具與指令
 *   **Chrome 視覺驅動自動化工具 (Browser Surface)**:
     - 啟動虛擬無頭瀏覽器，連接至本機埠。
-    - 依序切換設定 Viewport 尺寸。
-    - 生成視覺截圖 Artifact。
+    - 依序切換設定 Viewport 尺寸並產生視覺截圖。
 
 ## 驗證計畫
 1.  **螢幕寬度 1920px (Desktop)**: 確保導覽列完全平鋪顯示。
 2.  **螢幕寬度 768px (Tablet)**: 確保網格佈局從 3 欄調整為 2 欄。
-3.  **螢幕寬度 375px (Mobile)**: 確保頂部選單隱藏，並以「漢堡選單」按鈕替代。
+3.  **螢幕寬度 375px (Mobile)**: 確保頂部選單隱藏，以「漢堡選單」替代。
             `,
             diffCode: `
 <span class="c-num">1</span> <span class="add-line">+ // RWD 自動化視覺檢測測試碼</span>
@@ -345,18 +345,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const startSimBtn = document.getElementById('btn-start-sim');
     const resetSimBtn = document.getElementById('btn-reset-sim');
     const statusVal = document.getElementById('sim-status-value');
-    const screenTabs = document.getElementById('sim-screen-tabs');
-    const terminalPanel = document.getElementById('panel-terminal');
-    const planPanel = document.getElementById('panel-plan');
-    const codePanel = document.getElementById('panel-code');
-    const webPanel = document.getElementById('panel-web');
-    const terminalLog = document.getElementById('sim-terminal-log');
-    const planMdBox = document.getElementById('sim-plan-md');
-    const diffContentBox = document.getElementById('sim-diff-content');
+    
+    const projectNameLabel = document.getElementById('sim-proj-name');
+    const chatBox = document.getElementById('sim-chat-box');
+    const contextBtn = document.getElementById('btn-sim-context');
+    const dropdownMenu = document.getElementById('sim-dropdown-menu');
+    const inputTextPlaceholder = document.getElementById('sim-input-text-placeholder');
+
+    const artTabPlan = document.getElementById('art-tab-plan');
+    const artTabDiff = document.getElementById('art-tab-diff');
+    const artTabProof = document.getElementById('art-tab-proof');
+
+    const panelPlan = document.getElementById('sim-panel-plan');
+    const panelDiff = document.getElementById('sim-panel-diff');
+    const panelProof = document.getElementById('sim-panel-proof');
+
+    const planMdBox = document.getElementById('sim-plan-md-box');
+    const planBadge = document.getElementById('sim-plan-badge');
+    const diffBox = document.getElementById('sim-diff-box');
     const browserViewport = document.getElementById('sim-browser-viewport');
-    const browserUrlBox = document.getElementById('sim-browser-url');
-    const browserStatusBox = document.getElementById('sim-browser-status');
+    const browserUrlText = document.getElementById('sim-browser-url-text');
+    const browserStatusBadge = document.getElementById('sim-browser-status-badge');
+    const approveGate = document.getElementById('sim-approval-gate');
     const approvePlanBtn = document.getElementById('btn-approve-plan');
+
     const simPulse = document.getElementById('sim-pulse');
     const simActuatorText = document.getElementById('sim-actuator-text');
 
@@ -365,31 +377,58 @@ document.addEventListener('DOMContentLoaded', () => {
     let simulationTimer = null;
     let isWaitingForApproval = false;
 
+    // 初始狀態設置
+    projectNameLabel.innerText = SCENARIOS[currentScenarioKey].projectName;
+    goalTextContainer.innerText = SCENARIOS[currentScenarioKey].goalText;
+
     // scenarioSelect 變更事件
     scenarioSelect.addEventListener('change', () => {
         currentScenarioKey = scenarioSelect.value;
         goalTextContainer.innerText = SCENARIOS[currentScenarioKey].goalText;
+        projectNameLabel.innerText = SCENARIOS[currentScenarioKey].projectName;
         resetSimulator();
     });
 
-    // 頁籤點擊事件（只允許點擊非 disabled 的 tab）
-    const tabHeaders = document.querySelectorAll('.tab-title');
-    tabHeaders.forEach(tab => {
+    // 右側 Artifacts 頁籤切換事件
+    const artTabs = [artTabPlan, artTabDiff, artTabProof];
+    const artPanels = [panelPlan, panelDiff, panelProof];
+
+    artTabs.forEach(tab => {
         tab.addEventListener('click', () => {
             if (tab.classList.contains('disabled')) return;
             
-            const targetPanelId = tab.getAttribute('data-panel');
+            const targetPanelId = tab.getAttribute('data-tab-panel');
             
-            tabHeaders.forEach(t => t.classList.remove('active'));
+            artTabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
             
-            // 隱藏所有 panel，顯示目標 panel
-            [terminalPanel, planPanel, codePanel, webPanel].forEach(panel => {
+            artPanels.forEach(panel => {
                 panel.classList.remove('active');
             });
             document.getElementById(targetPanelId).classList.add('active');
         });
     });
+
+    // Toggle Add Context 選單顯示
+    contextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (dropdownMenu.style.display === 'flex') {
+            dropdownMenu.style.display = 'none';
+        } else {
+            dropdownMenu.style.display = 'flex';
+        }
+    });
+
+    // 點擊空白處關閉選單
+    document.addEventListener('click', () => {
+        dropdownMenu.style.display = 'none';
+    });
+
+    // 模擬選單項目點擊
+    window.triggerSimDropdownAction = function(type) {
+        addChatMessage('user', `<i class="fa-solid fa-plus-circle"></i> [Added Context: ${type}]`, false);
+        dropdownMenu.style.display = 'none';
+    };
 
     // 啟動模擬按鈕
     startSimBtn.addEventListener('click', () => {
@@ -413,12 +452,14 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(simulationTimer);
         isWaitingForApproval = false;
         
-        // 按鈕狀態
+        // 按鈕與輸入框重置
         startSimBtn.disabled = false;
         resetSimBtn.disabled = true;
+        inputTextPlaceholder.innerText = '輸入您的 Prompt 或使用 Add Context...';
+        inputTextPlaceholder.style.color = 'var(--text-muted)';
         
         // 系統指示器
-        simPulse.className = 'pulse-dot';
+        simPulse.className = 'app-pulse-dot';
         simActuatorText.innerText = 'Offline';
         simActuatorText.style.color = 'var(--text-muted)';
         
@@ -426,8 +467,8 @@ document.addEventListener('DOMContentLoaded', () => {
         statusVal.className = 'sim-status-value idle';
         statusVal.innerText = '準備就緒，等待啟動...';
         
-        // 頁籤重設 (除了終端機，其他都 disabled)
-        tabHeaders.forEach((tab, index) => {
+        // 頁籤重設 (除了計畫，其他都 disabled)
+        artTabs.forEach((tab, index) => {
             if (index === 0) {
                 tab.classList.add('active');
                 tab.classList.remove('disabled');
@@ -438,30 +479,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         // Panel 顯示重設
-        terminalPanel.classList.add('active');
-        planPanel.classList.remove('active');
-        codePanel.classList.remove('active');
-        webPanel.classList.remove('active');
+        panelPlan.classList.add('active');
+        panelDiff.classList.remove('active');
+        panelProof.classList.remove('active');
         
-        // 內容清空
-        terminalLog.innerHTML = `
-            <div class="t-muted">// Antigravity 智慧工作流模擬器</div>
-            <div class="t-muted">// 請於左側選擇情境並點擊「啟動 Agent 模擬」...</div>
+        // 對話與產物內容清空
+        chatBox.innerHTML = `
+            <div class="sim-chat-message bot">
+                <div class="msg-sender"><i class="fa-solid fa-robot"></i> Antigravity Agent</div>
+                <div class="msg-text">您好！我是 Antigravity。已成功載入專案資料夾。請點擊左側「啟動 Agent 模擬」開始演示。</div>
+            </div>
         `;
-        planMdBox.innerHTML = '';
-        diffContentBox.innerHTML = '';
+        
+        planMdBox.innerHTML = `<div class="art-placeholder-text">Agent 啟動後，實作計畫書將會在此動態呈現。</div>`;
+        planBadge.innerText = '尚未生成';
+        planBadge.style.backgroundColor = 'rgba(255,255,255,0.03)';
+        planBadge.style.color = 'var(--text-muted)';
+        planBadge.style.borderColor = 'var(--border-color)';
+        
+        approveGate.style.display = 'none';
+        diffBox.innerHTML = '';
         browserViewport.innerHTML = '';
-        browserUrlBox.innerText = 'http://localhost:3000';
-        browserStatusBox.innerText = 'Offline';
+        browserUrlText.innerText = 'http://localhost:3000';
+        browserStatusBadge.innerText = 'Offline';
+
+        // 左側檔案樹 active 移除
+        document.querySelectorAll('.sim-proj-file').forEach(f => f.classList.remove('active'));
     }
 
-    // 新增終端機 Log 的輔助函式
-    function printLog(text, type = 't-info') {
-        const line = document.createElement('div');
-        line.className = `terminal-line ${type}`;
-        line.innerHTML = text;
-        terminalLog.appendChild(line);
-        terminalPanel.scrollTop = terminalPanel.scrollHeight;
+    // 新增聊天訊息的輔助函式
+    function addChatMessage(sender, text, hasHeader = true) {
+        const bubble = document.createElement('div');
+        bubble.className = `sim-chat-message ${sender}`;
+        
+        let contentHTML = '';
+        if (hasHeader) {
+            if (sender === 'user') {
+                contentHTML += `<div class="msg-sender"><i class="fa-solid fa-user"></i> 您</div>`;
+            } else {
+                contentHTML += `<div class="msg-sender"><i class="fa-solid fa-robot"></i> Antigravity Agent</div>`;
+            }
+        }
+        contentHTML += `<div class="msg-text">${text}</div>`;
+        bubble.innerHTML = contentHTML;
+        
+        chatBox.appendChild(bubble);
+        chatBox.scrollTop = chatBox.scrollHeight;
     }
 
     // 啟動模擬狀態機
@@ -474,52 +537,56 @@ document.addEventListener('DOMContentLoaded', () => {
         // 變更執行狀態為 Running
         statusVal.className = 'sim-status-value running';
         statusVal.innerText = '正在執行 (Running)';
-        simPulse.className = 'pulse-dot active';
+        simPulse.className = 'app-pulse-dot active';
         simActuatorText.innerText = 'Actuator Active';
         simActuatorText.style.color = 'var(--accent-emerald)';
 
-        // 步驟 1：初始化研究 (Research Phase)
-        printLog('<span class="t-prompt">$</span> antigravity start --goal "' + SCENARIOS[currentScenarioKey].goalText.substring(0, 20) + '..."', 't-input');
-        
+        // 1. 使用者送出對話
+        addChatMessage('user', SCENARIOS[currentScenarioKey].goalText);
+        inputTextPlaceholder.innerText = 'Agent 正在工作中，請稍候...';
+        inputTextPlaceholder.style.color = 'var(--text-muted)';
+
+        // 2. 步驟 1：初始化研究 (Research Phase)
         simulationTimer = setTimeout(() => {
-            printLog('[System] 開始掃描本機工作區...');
-            printLog('[System] 分析專案目錄與設定檔...');
+            addChatMessage('bot', `<i class="fa-solid fa-circle-notch fa-spin"></i> 正在掃描本機專案目錄 <code>c:\\AIagent_Antigravity</code> 並探查環境依賴...`);
             
+            // 左側專案檔案高亮，模擬 Agent 正在檢查這些檔案
+            document.querySelectorAll('.sim-proj-file').forEach(f => f.classList.add('active'));
+
             simulationTimer = setTimeout(() => {
-                printLog('[Research] 正在針對使用者目標搜尋知識原理與依賴項目...');
-                if (currentScenarioKey === 'attendance') {
-                    printLog('[Research] 搜尋關鍵字: "HTML5 出缺席登記表", "毛玻璃 HSL 顏色樣式表"');
-                } else if (currentScenarioKey === 'calculator') {
-                    printLog('[Research] 搜尋關鍵字: "JavaScript Array reduce", "購物車折扣計算 JSDoc"');
-                } else {
-                    printLog('[Research] 搜尋關鍵字: "Chrome automation screenshot", "自動化測試 RWD 視窗"');
-                }
+                addChatMessage('bot', `🔍 啟動背景子 Agent 執行相關知識搜尋，已分析完成。正在為您編寫實作計畫書...`);
                 
-                // 步驟 2：計畫階段 (Planning Phase)
+                // 3. 步驟 2：計畫階段 (Planning Phase)
                 simulationTimer = setTimeout(() => {
-                    printLog('[Plan] 自主拆解步驟，開始建立實作計畫書...');
-                    printLog('[Plan] 寫入 Artifact: <span class="t-link" onclick="focusSimTab(\'tab-sim-plan\')">implementation_plan.md</span>');
+                    addChatMessage('bot', `✨ 實作計畫已生成！請在右側面板審查 <code>implementation_plan.md</code>。<strong>Agent 已暫停，等待您的核准。</strong>`);
                     
                     // 渲染 Plan MD
                     const planHtml = parseSimpleMarkdown(SCENARIOS[currentScenarioKey].planMD);
                     planMdBox.innerHTML = planHtml;
                     
-                    // 開放 Plan 頁籤並切換過去
-                    document.getElementById('tab-sim-plan').classList.remove('disabled');
-                    focusSimTab('tab-sim-plan');
+                    // 更新計畫狀態 Badge
+                    planBadge.innerText = '等待核准';
+                    planBadge.style.backgroundColor = 'rgba(245, 158, 11, 0.15)';
+                    planBadge.style.color = 'var(--accent-amber)';
+                    planBadge.style.borderColor = 'rgba(245, 158, 11, 0.3)';
+
+                    // 顯示核准審查閘門 (Approve Gate)
+                    approveGate.style.display = 'flex';
+                    
+                    // 確保 Plan 頁籤是打開並 Active
+                    focusArtifactTab('art-tab-plan');
                     
                     // 進入等待批准狀態
                     statusVal.className = 'sim-status-value waiting';
-                    statusVal.innerText = '等待批准 (Waiting)';
-                    simPulse.className = 'pulse-dot waiting';
-                    simActuatorText.innerText = 'Suspended (Gate)';
+                    statusVal.innerText = '等待審查 (Waiting)';
+                    simPulse.className = 'app-pulse-dot waiting';
+                    simActuatorText.innerText = 'Suspended (Approval Gate)';
                     simActuatorText.style.color = 'var(--accent-amber)';
                     isWaitingForApproval = true;
-                    printLog('[Wait] 實作計畫已就緒。為保障代碼安全與教學評估，Agent 已暫停，等待使用者審查與批准。', 't-warning');
                     
                 }, 2000);
             }, 1800);
-        }, 1000);
+        }, 1200);
     }
 
     // 批准計畫
@@ -529,96 +596,87 @@ document.addEventListener('DOMContentLoaded', () => {
         // 恢復運行狀態
         statusVal.className = 'sim-status-value running';
         statusVal.innerText = '正在執行 (Running)';
-        simPulse.className = 'pulse-dot active';
+        simPulse.className = 'app-pulse-dot active';
         simActuatorText.innerText = 'Actuator Active';
         simActuatorText.style.color = 'var(--accent-emerald)';
         
-        // 隱藏 Approve Gate，將 Plan Badge 改為「已批准」
-        approvePlanBtn.parentElement.style.display = 'none';
-        planPanel.querySelector('.plan-badge').innerText = '已核准';
-        planPanel.querySelector('.plan-badge').style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
-        planPanel.querySelector('.plan-badge').style.color = 'var(--accent-emerald)';
-        planPanel.querySelector('.plan-badge').style.borderColor = 'rgba(16, 185, 129, 0.3)';
+        // 隱藏 Approve Gate，將 Plan Badge 改為「已核准」
+        approveGate.style.display = 'none';
+        planBadge.innerText = '已核准';
+        planBadge.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
+        planBadge.style.color = 'var(--accent-emerald)';
+        planBadge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
         
-        focusSimTab('tab-title'); // 切回 terminal
-        printLog('[User] 批准此計畫，授權 Agent 開始執行。', 't-input');
+        addChatMessage('user', '我已審查並批准此實作計畫，請開始執行。');
         
-        // 步驟 3：代碼寫入階段 (Execution - Code writing)
+        // 4. 步驟 3：代碼寫入階段 (Execution - Code writing)
         simulationTimer = setTimeout(() => {
-            printLog('[Execute] 建立待辦工作清單 Artifact: <span class="t-link">task.md</span>');
-            printLog('[Execute] [1/2] 正在套用代碼變更...');
-            
-            // 寫入 Diff Code 到對比 panel
-            diffContentBox.innerHTML = SCENARIOS[currentScenarioKey].diffCode;
-            document.getElementById('tab-sim-code').classList.remove('disabled');
+            addChatMessage('bot', `⚙️ 開始進行程式碼寫入。正在右側產生任務追蹤清單 <code>task.md</code>...`);
             
             simulationTimer = setTimeout(() => {
-                focusSimTab('tab-sim-code'); // 切到 Diff panel 讓使用者看
-                printLog('[Execute] [2/2] 成功修改原始碼檔案！');
+                // 寫入 Diff Code 到對比 panel，並開啟頁籤
+                diffBox.innerHTML = SCENARIOS[currentScenarioKey].diffCode;
+                artTabDiff.classList.remove('disabled');
+                focusArtifactTab('art-tab-diff'); // 切換到 Diff 讓使用者看
                 
-                // 步驟 4：自動化驗證階段 (Verification - Browser E2E)
+                addChatMessage('bot', `📝 正在對程式碼進行精確的區塊替換 (replace_file_content)...`);
+                
                 simulationTimer = setTimeout(() => {
-                    printLog('[Browser] 正在部屬本機環境，準備啟動視覺化驗證...');
-                    printLog('[Browser] 啟動 Chrome 無頭瀏覽器，導覽至: ' + SCENARIOS[currentScenarioKey].browserURL);
+                    addChatMessage('bot', `✅ 程式碼替換已完成。準備啟動自動化 Chrome 瀏覽器以驗證視覺排版與 E2E 流程...`);
                     
-                    document.getElementById('tab-sim-web').classList.remove('disabled');
-                    focusSimTab('tab-sim-web'); // 切到瀏覽器
-                    
-                    browserUrlBox.innerText = SCENARIOS[currentScenarioKey].browserURL;
-                    browserStatusBox.innerText = 'Loading...';
-                    browserViewport.innerHTML = '<div style="color: var(--text-secondary); font-family: var(--font-mono);"><i class="fa-solid fa-circle-notch fa-spin"></i> 正在渲染虛擬頁面...</div>';
-                    
+                    // 5. 步驟 4：自動化驗證階段 (Verification)
                     simulationTimer = setTimeout(() => {
-                        // 載入完成，顯示模擬 app 介面
-                        browserStatusBox.innerText = '200 OK';
-                        browserViewport.innerHTML = SCENARIOS[currentScenarioKey].browserViewportHTML;
+                        artTabProof.classList.remove('disabled');
+                        focusArtifactTab('art-tab-proof'); // 切換到 Browser 頁籤
                         
-                        // 若是 calculator 情境，加載 1.5 秒後將螢幕文字修改為單元測試成功
-                        if (currentScenarioKey === 'calculator') {
-                            setTimeout(() => {
-                                const tr = document.getElementById('sim-test-result');
-                                if (tr) tr.innerText = 'PASS';
-                            }, 1000);
-                        }
-                        
-                        printLog('[Browser] 頁面載入成功！開始模擬滑鼠點擊與響應式螢幕拉伸測試...');
+                        browserUrlText.innerText = SCENARIOS[currentScenarioKey].browserURL;
+                        browserStatusBadge.innerText = 'Loading...';
+                        browserViewport.innerHTML = '<div style="color: var(--text-secondary); font-family: var(--font-mono);"><i class="fa-solid fa-circle-notch fa-spin"></i> 正在叫起 Chrome 並渲染頁面...</div>';
                         
                         simulationTimer = setTimeout(() => {
-                            printLog('[Browser] 自動擷取網頁視覺截圖，並寫入 Walkthrough 報告。');
-                            printLog('[System] 成功產出交付報告 Artifact: <span class="t-link">walkthrough.md</span>');
+                            // 載入完成，顯示模擬 app 介面
+                            browserStatusBadge.innerText = '200 OK';
+                            browserViewport.innerHTML = SCENARIOS[currentScenarioKey].browserViewportHTML;
                             
-                            // 步驟 5：完成階段 (Success Phase)
-                            statusVal.className = 'sim-status-value success';
-                            statusVal.innerText = '任務成功 (Success)';
-                            simPulse.className = 'pulse-dot';
-                            simActuatorText.innerText = 'Task Completed';
-                            simActuatorText.style.color = 'var(--accent-emerald)';
+                            if (currentScenarioKey === 'calculator') {
+                                setTimeout(() => {
+                                    const tr = document.getElementById('sim-test-result');
+                                    if (tr) tr.innerText = 'PASS';
+                                }, 1000);
+                            }
                             
-                            focusSimTab('tab-title'); // 切回終端機
-                            printLog('[System] 恭喜！所有任務與驗證皆已自主完成。耗時約 15 秒。', 't-success');
+                            addChatMessage('bot', `🌐 瀏覽器渲染完成。正在模擬滑鼠點擊、調整多種尺寸進行 RWD 檢測...`);
                             
-                        }, 2500);
-                    }, 1500);
-                }, 2000);
-            }, 1800);
-        }, 1200);
+                            simulationTimer = setTimeout(() => {
+                                addChatMessage('bot', `📸 測試全部通過！已自動截圖，並在右側產生交付說明書 <code>walkthrough.md</code>。`);
+                                
+                                // 6. 步驟 5：完成階段 (Success Phase)
+                                statusVal.className = 'sim-status-value success';
+                                statusVal.innerText = '任務成功 (Success)';
+                                simPulse.className = 'app-pulse-dot';
+                                simActuatorText.innerText = 'Completed';
+                                simActuatorText.style.color = 'var(--accent-emerald)';
+                                
+                                inputTextPlaceholder.innerText = '任務已完成！可點選重設模擬器。';
+                                addChatMessage('bot', `🎉 所有工作已成功自主完成！共計修改 3 個檔案，耗時約 15 秒。歡迎隨時體驗其他模擬場景。`);
+                                
+                            }, 2500);
+                        }, 1500);
+                    }, 2000);
+                }, 1800);
+            }, 1500);
+        }, 1000);
     }
 
-    // 輔助函式：切換模擬器內部頁籤的視覺顯示
-    window.focusSimTab = function(tabId) {
-        let matchedTab = null;
-        if (tabId === 'tab-title') {
-            matchedTab = document.querySelector('.tab-title[data-panel="panel-terminal"]');
-        } else {
-            matchedTab = document.getElementById(tabId);
-        }
-        
+    // 輔助函式：切換模擬器右側 Artifacts 頁籤的顯示
+    window.focusArtifactTab = function(tabId) {
+        const matchedTab = document.getElementById(tabId);
         if (matchedTab && !matchedTab.classList.contains('disabled')) {
-            tabHeaders.forEach(t => t.classList.remove('active'));
+            artTabs.forEach(t => t.classList.remove('active'));
             matchedTab.classList.add('active');
             
-            const targetPanelId = matchedTab.getAttribute('data-panel');
-            [terminalPanel, planPanel, codePanel, webPanel].forEach(panel => {
+            const targetPanelId = matchedTab.getAttribute('data-tab-panel');
+            artPanels.forEach(panel => {
                 panel.classList.remove('active');
             });
             document.getElementById(targetPanelId).classList.add('active');
@@ -639,7 +697,6 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (line.startsWith('### ')) {
                 html += `<h3>${line.substring(4)}</h3>`;
             } else if (line.startsWith('* ') || line.startsWith('- ')) {
-                // 更換連結格式 [link text](file://...) 為 HTML 標籤
                 let liText = line.substring(2);
                 liText = liText.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<span class="t-link" onclick="window.open(\'$2\')">$1</span>');
                 html += `<ul><li>${liText}</li></ul>`;

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antigravity 一站式教學指南 - Google DeepMind 智慧 Agent 軟體開發平台</title>
-    <meta name="description" content="專為教師與學習者設計的 Antigravity 智慧開發平台中文教學網頁。探索 Agent-First 自主開發概念、三介面協作、Artifacts 信任層、教師專用 Prompt 範本與互動式工作流模擬器。">
+    <title>Antigravity 2.0 桌面版一站式教學指南 - Google DeepMind 智慧 Agent 開發平台</title>
+    <meta name="description" content="專為教師與學習者設計的 Antigravity 2.0 Windows 桌面安裝版教學網頁。探索三欄式 Agent-First 運作空間、Add Context 脈絡選單、右側 Artifacts 信任面板及互動式工作流模擬器。">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,14 +20,14 @@
     <header id="main-header">
         <div class="container header-container">
             <div class="logo">
-                <span class="gradient-text font-outfit font-weight-800">Antigravity</span>
-                <span class="badge">DeepMind Agentic Platform</span>
+                <span class="gradient-text font-outfit font-weight-800">Antigravity 2.0</span>
+                <span class="badge">Windows Desktop App</span>
             </div>
             <nav id="nav-menu">
                 <ul>
                     <li><a href="#hero" class="nav-link active">首頁</a></li>
                     <li><a href="#concepts" class="nav-link">核心概念</a></li>
-                    <li><a href="#surfaces" class="nav-link">三大介面</a></li>
+                    <li><a href="#interface-layout" class="nav-link">介面佈局</a></li>
                     <li><a href="#guide" class="nav-link">教學指南</a></li>
                     <li><a href="#templates" class="nav-link">Prompt範本</a></li>
                     <li><a href="#simulator" class="nav-link btn-simulator-nav">模擬器</a></li>
@@ -50,51 +50,81 @@
             <div class="container hero-container">
                 <div class="hero-content">
                     <div class="hero-tag animate-fade-in">
-                        <i class="fa-solid fa-sparkles"></i> 智慧 Agent 軟體開發新範式
+                        <i class="fa-solid fa-desktop"></i> Antigravity 2.0 官方桌面版
                     </div>
                     <h1 class="animate-slide-up">
-                        引領 <span class="gradient-text">Agent-First</span><br>自主軟體開發新紀元
+                        引領 <span class="gradient-text">Agent-First</span><br>獨立桌面開發新紀元
                     </h1>
                     <p class="animate-slide-up delay-1">
-                        Antigravity 是由 Google DeepMind 團隊開發的自主 Agent 開發平台。它徹底顛覆了「AI 自動補全」與「側邊欄對話」的傳統輔助模式，以「任務導向」自主規劃、執行與自我驗證，讓教師教學與學生學習如虎添翼。
+                        Antigravity 2.0 是專為 Windows 設計的自主 Agent 軟體開發平台。它脫離了傳統編輯器側邊欄的侷限，提供一個全新的獨立「三欄式指令中心」——完美管理並行 Agent、新增脈絡（Add Context）並將執行產物（Artifacts）作為與開發者協作的信用媒介。
                     </p>
                     <div class="hero-buttons animate-slide-up delay-2">
                         <a href="#simulator" class="btn btn-gradient btn-lg">
-                            <i class="fa-solid fa-play"></i> 體驗互動模擬器
+                            <i class="fa-solid fa-play"></i> 體驗桌面版模擬器
                         </a>
-                        <a href="#concepts" class="btn btn-outline btn-lg">
-                            <i class="fa-solid fa-book"></i> 探索概念原理
+                        <a href="#interface-layout" class="btn btn-outline btn-lg">
+                            <i class="fa-solid fa-square-poll-horizontal"></i> 查看介面配置
                         </a>
                     </div>
                 </div>
                 
-                <!-- 右側模擬編輯器展示 -->
+                <!-- 右側模擬 Antigravity 2.0 桌面應用程式介面 -->
                 <div class="hero-visual animate-fade-in-right delay-1">
-                    <div class="mock-window ide-window">
+                    <div class="mock-window app-20-window">
                         <div class="window-header">
                             <div class="window-controls">
                                 <span class="control close"></span>
                                 <span class="control minimize"></span>
                                 <span class="control maximize"></span>
                             </div>
-                            <div class="window-title font-outfit">antigravity - agent_session</div>
+                            <div class="window-title font-outfit">Antigravity 2.0 - Windows Desktop App</div>
                             <div class="window-actions">
                                 <span class="status-indicator-dot online"></span>
-                                <span class="status-text">Agent Active</span>
+                                <span class="status-text">Ready</span>
                             </div>
                         </div>
-                        <div class="window-body font-fira-code">
-                            <div class="terminal-line"><span class="t-prompt">$</span> antigravity run --goal "建立一個具有響應式設計的傳統中文出缺席登記網頁"</div>
-                            <div class="terminal-line t-info">[System] 正在初始化工作區... 檔案路徑: c:\AIagent_Antigravity</div>
-                            <div class="terminal-line t-info">[System] 啟動背景研究... 搜尋相關 UI 設計風格</div>
-                            <div class="terminal-line t-success">[Plan] 成功建立實作計畫實體: <span class="t-link">implementation_plan.md</span></div>
-                            <div class="terminal-line t-warning">[Wait] 正在等待使用者審查實作計畫...</div>
-                            <div class="terminal-line t-input"><span class="t-prompt">></span> 批准計畫，請開始執行。</div>
-                            <div class="terminal-line t-info">[Execute] 正在建立 index.html... <span class="t-success">完成 [100%]</span></div>
-                            <div class="terminal-line t-info">[Execute] 正在套用玻璃擬態 CSS 樣式... <span class="t-success">完成 [100%]</span></div>
-                            <div class="terminal-line t-info">[Browser] 啟動 Chrome E2E 測試驗證網頁響應式佈局...</div>
-                            <div class="terminal-line t-success">[Browser] 驗證成功！已自動擷取 3 張測試畫面，並記錄於 <span class="t-link">walkthrough.md</span></div>
-                            <div class="terminal-line t-success">[System] 任務成功完成！總計耗時 18 秒，修改 3 個檔案。</div>
+                        <div class="app-3col-body">
+                            <!-- 1. 左側專案區 -->
+                            <div class="app-left-sidebar">
+                                <div class="side-section-title">Projects</div>
+                                <div class="project-item active"><i class="fa-solid fa-folder-open"></i> my-attendance-app</div>
+                                <div class="file-item"><i class="fa-brands fa-html5"></i> index.html</div>
+                                <div class="file-item"><i class="fa-brands fa-css3-alt"></i> style.css</div>
+                                <div class="file-item"><i class="fa-square-js"></i> app.js</div>
+                            </div>
+                            <!-- 2. 中間對話區 -->
+                            <div class="app-center-chat">
+                                <div class="chat-bubbles-container font-primary">
+                                    <div class="chat-bubble user">
+                                        請建立一個班級出缺席登記系統...
+                                    </div>
+                                    <div class="chat-bubble agent">
+                                        <i class="fa-solid fa-robot"></i>
+                                        我已經分析了專案，準備為您產生實作計畫書。請至右側面板審查 <code>implementation_plan.md</code>。
+                                    </div>
+                                </div>
+                                <div class="chat-input-mock">
+                                    <div class="add-context-btn-mock">
+                                        <i class="fa-solid fa-plus"></i> Add Context
+                                    </div>
+                                    <div class="input-text-mock">Ask Antigravity...</div>
+                                    <div class="send-btn-mock"><i class="fa-solid fa-arrow-up"></i></div>
+                                </div>
+                            </div>
+                            <!-- 3. 右側產物區 -->
+                            <div class="app-right-artifacts">
+                                <div class="artifact-header-mock">
+                                    <span>Artifacts</span>
+                                    <span class="art-badge-mock">Plan</span>
+                                </div>
+                                <div class="artifact-body-mock font-fira-code">
+                                    # implementation_plan.md<br>
+                                    - [NEW] index.html<br>
+                                    - [NEW] style.css<br>
+                                    - [NEW] app.js<br>
+                                    <span class="t-warning"><i class="fa-solid fa-hourglass"></i> 等待使用者審查計畫...</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,233 +140,162 @@
         <section id="concepts" class="section-padding">
             <div class="container">
                 <div class="section-header text-center">
-                    <h2 class="section-title">核心概念與設計原理</h2>
-                    <p class="section-subtitle">深入了解 Antigravity 如何擺脫傳統 AI 助手框架，邁向自主開發時代。</p>
+                    <h2 class="section-title">Antigravity 2.0 核心機制</h2>
+                    <p class="section-subtitle">擺脫傳統編輯器，以「獨立專案管理與協作」為中心的智慧開發系統。</p>
                 </div>
                 
                 <div class="grid grid-3 gap-lg">
                     <!-- 卡片 1 -->
                     <div class="card concept-card">
                         <div class="card-icon-container">
-                            <i class="fa-solid fa-robot"></i>
+                            <i class="fa-solid fa-window-restore"></i>
                         </div>
-                        <h3>Agent-First (Agent 優先)</h3>
+                        <h3>獨立桌面應用程式 (Standalone App)</h3>
                         <p>
-                            傳統 AI 只是「自動補全程式碼」或在「側邊欄進行聊天」。Antigravity 則是 <strong>Agent-First</strong> 機制：你只需給出一個高階目標，它便會主動搜尋、設計、建立、修改代碼、執行命令並完成測試，過程中無需你一行行地指導。
+                            Antigravity 2.0 作為 Windows 獨立應用程式運作，您可以將其視為「智慧指令指揮塔」。它在您的本機專案目錄上工作，您能搭配自己習慣的 IDE（如 VS Code、Cursor 等）進行程式編寫，而讓 Agent 負責自主規劃與異步執行。
                         </p>
                     </div>
                     
                     <!-- 卡片 2 -->
                     <div class="card concept-card">
                         <div class="card-icon-container">
-                            <i class="fa-solid fa-cubes"></i>
+                            <i class="fa-solid fa-circle-nodes"></i>
                         </div>
-                        <h3>三介面協同運作</h3>
+                        <h3>專案導向 (Project-Centric)</h3>
                         <p>
-                            將 <strong>編輯器 (Editor)</strong>、<strong>管理器 (Agent Manager)</strong> 與 <strong>瀏覽器 (Browser)</strong> 整合在同一個 Actuation 迴圈中。Agent 可以像人類開發者一樣，編寫代碼後立刻打開瀏覽器測試，並根據截圖或報錯進行自我修復 (Self-healing)。
+                            拋棄傳統以單一 Git 儲存庫為限的限制。在 Antigravity 中，您可以將多個相關的本地資料夾、Git 庫加入同一個「Project」，讓 Agent 在跨服務、跨目錄的多模組情境下，擁有完整的全域知識（Global Context）來修改程式碼。
                         </p>
                     </div>
                     
                     <!-- 卡片 3 -->
                     <div class="card concept-card">
                         <div class="card-icon-container">
-                            <i class="fa-solid fa-shield-halved"></i>
+                            <i class="fa-solid fa-comments-dollar"></i>
                         </div>
-                        <h3>Artifacts 信任機制</h3>
+                        <h3>雙向回饋機制 (Artifacts Commenting)</h3>
                         <p>
-                            不同於黑盒子運作，Antigravity 將重要里程碑產出為 <strong>Artifacts (交付產物)</strong>，包含實作計畫書、任務清單與最後的 Walkthrough 報告。開發者能在 Agent 執行前進行評估與核准，建立了高度的掌控性與信任感。
+                            這是一個劃時代的信任機密。產出產物（如實作計畫或執行結果報告）後，您能像在 Google Docs 中一樣，選取畫面的特定區塊或代碼行並留下意見，Agent 會即時在後台讀取您的回饋並重新調整程式碼，不再需要繁雜的 Prompt 重寫。
                         </p>
-                    </div>
-                </div>
-
-                <!-- 比較表格：傳統 AI vs Antigravity -->
-                <div class="comparison-wrapper">
-                    <h3 class="text-center font-weight-700 margin-bottom-md">開發範式對比</h3>
-                    <div class="table-responsive">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>功能維度</th>
-                                    <th>傳統 AI 助理 (如 Copilot / 側邊欄聊天)</th>
-                                    <th class="highlight-col">Antigravity 智慧 Agent 平台</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="font-weight-600">工作模式</td>
-                                    <td>反應式 (Reactive) - 點擊一次生成一次，單步對答</td>
-                                    <td class="highlight-col font-weight-600">主動式 (Proactive) - 給予目標，自主拆解步驟執行</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-weight-600">跨檔案操作</td>
-                                    <td>通常受限於單一檔案修改，需要人工複製貼上</td>
-                                    <td class="highlight-col">自主在整個工作區進行多檔案、跨模組協同修改</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-weight-600">指令與環境</td>
-                                    <td>無法運行終端機指令，需開發者手動執行與排錯</td>
-                                    <td class="highlight-col">能自主運行編譯、測試命令，並讀取終端回傳進行除錯</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-weight-600">視覺與驗證</td>
-                                    <td>無法感知畫面。需由人工部屬後自行看畫面確認</td>
-                                    <td class="highlight-col">能啟動虛擬瀏覽器、讀取網頁 DOM、截圖與進行 E2E 驗證</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-weight-600">安全與審查</td>
-                                    <td>無審查機制，直接覆寫代碼或提供不可控的指令</td>
-                                    <td class="highlight-col">透過 <strong>實作計畫 Artifact</strong> 先審查後執行，具安全沙盒限制</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 三大介面介紹 -->
-        <section id="surfaces" class="section-padding section-light">
+        <!-- 介面佈局與各項功能 -->
+        <section id="interface-layout" class="section-padding section-light">
             <div class="container">
                 <div class="section-header text-center">
-                    <h2 class="section-title">三大實體運作介面 (Three-Surface Actuation)</h2>
-                    <p class="section-subtitle">Antigravity 將開發的核心活動封裝在三個高效整合的運作表面中。</p>
+                    <h2 class="section-title">官方桌面版三大佈局區塊</h2>
+                    <p class="section-subtitle">熟悉 Windows 獨立安裝版的介面配置，能大幅提升您的教學與開發效率。</p>
                 </div>
                 
                 <div class="surface-showcase">
                     <!-- 左側控制按鈕 -->
                     <div class="surface-controls">
-                        <button class="surface-btn active" data-target="surface-editor">
-                            <span class="icon"><i class="fa-solid fa-code"></i></span>
-                            <span class="title">編輯器 (Editor Surface)</span>
-                            <span class="desc">高效編輯代碼，精確追蹤變更</span>
+                        <button class="surface-btn active" data-target="layout-left">
+                            <span class="icon"><i class="fa-solid fa-folder-tree"></i></span>
+                            <span class="title">左側：專案探索區 (Projects Panel)</span>
+                            <span class="desc">管理專案脈絡，添加本地工作目錄</span>
                         </button>
-                        <button class="surface-btn" data-target="surface-manager">
-                            <span class="icon"><i class="fa-solid fa-gauge-high"></i></span>
-                            <span class="title">管理器 (Agent Manager Surface)</span>
-                            <span class="desc">並行調度子 Agent，掌控全局任務</span>
+                        <button class="surface-btn" data-target="layout-center">
+                            <span class="icon"><i class="fa-solid fa-comments"></i></span>
+                            <span class="title">中間：對話與 Add Context 區</span>
+                            <span class="desc">Prompt 主對話，注入多元上下文內容</span>
                         </button>
-                        <button class="surface-btn" data-target="surface-browser">
-                            <span class="icon"><i class="fa-solid fa-globe"></i></span>
-                            <span class="title">驗證瀏覽器 (Browser Surface)</span>
-                            <span class="desc">自主瀏覽與截圖，實現 E2E 視覺驗證</span>
+                        <button class="surface-btn" data-target="layout-right">
+                            <span class="icon"><i class="fa-solid fa-file-shield"></i></span>
+                            <span class="title">右側：Artifacts 產物區</span>
+                            <span class="desc">審查計畫、監控任務與 E2E 驗證</span>
                         </button>
                     </div>
                     
                     <!-- 右側內容卡片 -->
                     <div class="surface-display">
-                        <!-- 編輯器 -->
-                        <div id="surface-editor" class="surface-panel active">
+                        <!-- 1. 左側專案探索區 -->
+                        <div id="layout-left" class="surface-panel active">
                             <div class="panel-media">
-                                <div class="mock-window vscode-window">
+                                <div class="mock-window layout-media-window">
+                                    <div class="window-body">
+                                        <div class="project-mock-tree font-primary">
+                                            <div class="project-root"><i class="fa-solid fa-cubes"></i> PROJECT: Class_Manager</div>
+                                            <div class="project-folder"><i class="fa-solid fa-folder-open"></i> frontend/</div>
+                                            <div class="project-file selected"><i class="fa-brands fa-html5"></i> index.html</div>
+                                            <div class="project-file"><i class="fa-square-js"></i> app.js</div>
+                                            <div class="project-folder"><i class="fa-solid fa-folder"></i> tests/</div>
+                                            <div class="project-root margin-top-md"><i class="fa-solid fa-database"></i> sqlite-db/ (Context Folder)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-text">
+                                <h3>左側專案探索區：管理全域脈絡</h3>
+                                <p>在桌面應用程式中，整個開發是以「Project」為主體，您可以隨時：</p>
+                                <ul class="check-list">
+                                    <li><i class="fa-solid fa-circle-check"></i> <strong>添加本地工作資料夾</strong>：隨意選取您的電腦硬碟路徑並載入。</li>
+                                    <li><i class="fa-solid fa-circle-check"></i> <strong>跨目錄感知</strong>：即使專案包含了前端資料夾與後端資料夾，Agent 也能同時理解並同步修改。</li>
+                                    <li><i class="fa-solid fa-circle-check"></i> <strong>快速檔案點選</strong>：按一下檔案可即時在 Agent 工作流中設為主要焦點。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 2. 中間對話與 Add Context 區 -->
+                        <div id="layout-center" class="surface-panel">
+                            <div class="panel-media">
+                                <div class="mock-window layout-media-window">
+                                    <div class="window-body font-primary flex-column justify-between p-0 h-100">
+                                        <div class="chat-body-mock">
+                                            <div class="bubble-mock agent">
+                                                請告訴我您想建立或修改什麼專案？您可以點擊下方選單添加上下文檔案。
+                                            </div>
+                                        </div>
+                                        <!-- Add Context 下拉選單展示 -->
+                                        <div class="add-context-dropdown-mock font-primary">
+                                            <div class="dropdown-title">Add Context</div>
+                                            <div class="dropdown-item"><i class="fa-regular fa-image"></i> Media <span class="dropdown-hint">上傳圖片或錄影</span></div>
+                                            <div class="dropdown-item"><i class="fa-solid fa-at"></i> Mentions <span class="dropdown-hint">引用檔案、符號或對話</span></div>
+                                            <div class="dropdown-item"><i class="fa-solid fa-bolt"></i> Actions <span class="dropdown-hint">執行快捷動作</span></div>
+                                            <div class="dropdown-item"><i class="fa-brands fa-chrome"></i> Browser <span class="dropdown-hint">連結當前網頁或截圖</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-text">
+                                <h3>中間區塊：Prompt 與 Add Context</h3>
+                                <p>這是您向 Agent 發號施令的主戰場，亮點在於**靈活的上下文注入選單**：</p>
+                                <ul class="check-list">
+                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Media (媒體)</strong>：上傳有問題的畫面對照圖，讓 AI 用眼睛看著修。</li>
+                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Mentions (提及)</strong>：使用 `@` 符號直接在 Prompt 提及專案下的某個程式檔案，免去上傳全部代碼。</li>
+                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Browser (瀏覽器)</strong>：與當前網頁整合，將網址、DOM 元件狀態等即時灌入對話。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 3. 右側 Artifacts 產物區 -->
+                        <div id="layout-right" class="surface-panel">
+                            <div class="panel-media">
+                                <div class="mock-window layout-media-window">
                                     <div class="window-header">
-                                        <div class="window-controls"><span class="control close"></span><span class="control minimize"></span><span class="control maximize"></span></div>
-                                        <div class="window-title">VS Code - index.html</div>
+                                        <div class="tabs-container">
+                                            <span class="tab-title-mock active">implementation_plan.md</span>
+                                        </div>
                                     </div>
                                     <div class="window-body font-fira-code">
-                                        <div class="code-line"><span class="c-num">1</span> <span class="c-tag">&lt;div</span> <span class="c-attr">class</span>=<span class="c-str">"app-container"</span><span class="c-tag">&gt;</span></div>
-                                        <div class="code-line"><span class="c-num">2</span>     <span class="c-tag">&lt;header&gt;</span></div>
-                                        <div class="code-line del-line"><span class="c-num">3</span> -       <span class="c-tag">&lt;h1&gt;</span>Hello World<span class="c-tag">&lt;/h1&gt;</span></div>
-                                        <div class="code-line add-line"><span class="c-num">4</span> +       <span class="c-tag">&lt;h1&gt;</span>歡迎使用 Antigravity 學習平台<span class="c-tag">&lt;/h1&gt;</span></div>
-                                        <div class="code-line"><span class="c-num">5</span>     <span class="c-tag">&lt;/header&gt;</span></div>
-                                        <div class="code-line"><span class="c-num">6</span> <span class="c-tag">&lt;/div&gt;</span></div>
+                                        <div style="background-color: rgba(99,102,241,0.06); border: 1px solid var(--accent-indigo); padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem; margin-bottom: 0.5rem;">
+                                            <i class="fa-solid fa-comment-dots"></i> <strong>教師的批註回饋：</strong><br>
+                                            "李老師：請把按鈕底色改成圓角，比較美觀。"
+                                        </div>
+                                        <div>- [MODIFY] index.html</div>
+                                        <div class="t-success">- [NEW] assets/button.png</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="panel-text">
-                                <h3>編輯器：精準安全的代碼編寫</h3>
-                                <p>基於現代 IDE 架構（如 VS Code API），Agent 可直接讀取專案的目錄結構，並以「非破壞性」方式對檔案進行單一或多處非連續性的代碼替換。</p>
+                                <h3>右側產物區：交付與審查的信任層</h3>
+                                <p>右側面板用來實時呈現 Agent 產生出的重要文件與測試畫面，也是教學上最重要的「互動回饋點」：</p>
                                 <ul class="check-list">
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Replace File Content</strong>: 精確比對目標區塊代碼並替換，防止全檔覆寫錯誤。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Multi-Replace File Content</strong>: 跨行、多區塊一次性修改，大幅縮短執行時間。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Grep Search</strong>: 支援正規表示法搜尋，快速定位整個專案中的函式或變數。</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- 管理器 -->
-                        <div id="surface-manager" class="surface-panel">
-                            <div class="panel-media">
-                                <div class="mock-window manager-window">
-                                    <div class="window-header">
-                                        <div class="window-controls"><span class="control close"></span><span class="control minimize"></span><span class="control maximize"></span></div>
-                                        <div class="window-title">Antigravity Mission Control</div>
-                                    </div>
-                                    <div class="window-body">
-                                        <div class="agent-card-mini">
-                                            <div class="agent-info">
-                                                <span class="agent-avatar"><i class="fa-solid fa-brain"></i></span>
-                                                <div>
-                                                    <div class="agent-name">主 Agent (#001)</div>
-                                                    <div class="agent-task">架構主頁面結構與導覽</div>
-                                                </div>
-                                            </div>
-                                            <span class="status-badge running">執行中</span>
-                                        </div>
-                                        <div class="agent-card-mini">
-                                            <div class="agent-info">
-                                                <span class="agent-avatar"><i class="fa-solid fa-search"></i></span>
-                                                <div>
-                                                    <div class="agent-name">子 Agent: Researcher (#002)</div>
-                                                    <div class="agent-task">搜尋外部資料與 CSS 樣式庫</div>
-                                                </div>
-                                            </div>
-                                            <span class="status-badge success">完成</span>
-                                        </div>
-                                        <div class="agent-card-mini">
-                                            <div class="agent-info">
-                                                <span class="agent-avatar"><i class="fa-solid fa-vial"></i></span>
-                                                <div>
-                                                    <div class="agent-name">子 Agent: Tester (#003)</div>
-                                                    <div class="agent-task">執行自動化測試與響應式檢查</div>
-                                                </div>
-                                            </div>
-                                            <span class="status-badge pending">等待中</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-text">
-                                <h3>管理器：多任務調度中心</h3>
-                                <p>在處理大型專案時，單一 AI 無法在單一上下文（Context）中完美處理所有事情。管理器允許您或主 Agent 動態產生多個分工明確的子 Agent，進行異步並行開發。</p>
-                                <ul class="check-list">
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Define Subagent</strong>: 賦予子 Agent 專屬的 System Prompt 與工具集（如唯讀研究、代碼寫入）。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Invoke & Send Message</strong>: 主子 Agent 之間可傳遞參數、指派子任務，並將結果回傳主執行流。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Kill & Status Control</strong>: 隨時停止特定分支的執行，保護運算資源不浪費。</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- 瀏覽器 -->
-                        <div id="surface-browser" class="surface-panel">
-                            <div class="panel-media">
-                                <div class="mock-window browser-window">
-                                    <div class="window-header">
-                                        <div class="window-controls"><span class="control close"></span><span class="control minimize"></span><span class="control maximize"></span></div>
-                                        <div class="browser-address-bar">
-                                            <i class="fa-solid fa-lock"></i> localhost:3000
-                                        </div>
-                                    </div>
-                                    <div class="window-body p-0 relative">
-                                        <div class="mock-website">
-                                            <div class="mock-nav"></div>
-                                            <div class="mock-hero">
-                                                <div class="mock-btn-glow"></div>
-                                            </div>
-                                        </div>
-                                        <!-- 藍色虛擬游標 -->
-                                        <div class="virtual-cursor">
-                                            <i class="fa-solid fa-arrow-pointer"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-text">
-                                <h3>瀏覽器：最終成果的「視覺驗證」</h3>
-                                <p>程式碼編譯成功並不代表介面完全正確。Antigravity 的瀏覽器表面（Browser Surface）提供 E2E 視覺驗證機制，讓 Agent 模擬真實使用者互動。</p>
-                                <ul class="check-list">
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>Chrome Automation</strong>: Agent 可模擬點擊按鈕、填寫輸入框、滾動頁面等動作。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>視覺截圖與錄影</strong>: 將測試過程產出為截圖與影片 Artifact，做為給教師/使用者的交付證據。</li>
-                                    <li><i class="fa-solid fa-circle-check"></i> <strong>自我修正 (Self-healing)</strong>: 當瀏覽器報錯（Console Error）或畫面渲染異常時，Agent 會自動讀取錯誤並修正代碼，直到驗證通過。</li>
+                                    <li><i class="fa-solid fa-circle-check"></i> <strong>實作計畫 (Plan)</strong>：列出所有修改清單，使用者可以點擊同意，或是留下註解，Agent 就會自動修正計畫後再動工。</li>
+                                    <li><i class="fa-solid fa-circle-check"></i> <strong>工作清單 (Task List)</strong>：以 `task.md` 實時展示目前打勾與進行中的檔案修改，掌握開發節奏。</li>
+                                    <li><i class="fa-solid fa-circle-check"></i> <strong>視覺驗證 (Visual Proof)</strong>：直接在此面板呈現 Agent 自主開啟瀏覽器所進行的網頁測試成果與 E2E 錄影。</li>
                                 </ul>
                             </div>
                         </div>
@@ -350,74 +309,70 @@
             <div class="container">
                 <div class="section-header text-center">
                     <h2 class="section-title">教師教學引導與使用步驟</h2>
-                    <p class="section-subtitle">如何在教學或學生練習中導入 Antigravity？遵循以下 5 大標準步驟。</p>
+                    <p class="section-subtitle">如何在教學或學生練習中導入 Antigravity 2.0？遵循以下 5 大標準步驟。</p>
                 </div>
                 
                 <div class="timeline">
                     <!-- 步驟 1 -->
                     <div class="timeline-item">
-                        <div class="timeline-icon"><i class="fa-solid fa-bullseye"></i></div>
+                        <div class="timeline-icon"><i class="fa-solid fa-folder-plus"></i></div>
                         <div class="timeline-content">
                             <span class="step-number">STEP 01</span>
-                            <h3>指派目標與情境設定 (Targeting)</h3>
+                            <h3>建立專案與載入資料夾 (Setup Project)</h3>
                             <p>
-                                教師或學生向 Antigravity 提出明確的目標任務。建議使用「角色 (Role) + 任務 (Task) + 限制條件 (Constraint)」的格式。
+                                學生開啟 Antigravity 2.0 桌面端，在左側點選「New Project」建立專案，並點選「Add Folder」將本地存放作業的資料夾載入。這將成為 Agent 工作的安全沙盒。
                             </p>
-                            <div class="example-quote">
-                                <strong>教學範例：</strong>「你是一位前端工程師，請為我製作一個班級出缺席登記系統的單頁網頁，需要支援離線暫存與響應式排版，並且以繁體中文顯示。」
-                            </div>
                         </div>
                     </div>
                     
                     <!-- 步驟 2 -->
                     <div class="timeline-item">
-                        <div class="timeline-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <div class="timeline-icon"><i class="fa-solid fa-comment-nodes"></i></div>
                         <div class="timeline-content">
                             <span class="step-number">STEP 02</span>
-                            <h3>自主研究與實作計畫 (Research & Plan)</h3>
+                            <h3>目標指派與上下文注入 (Prompting & Context)</h3>
                             <p>
-                                Agent 收到任務後，會先搜尋工作區目錄、探查依賴環境（Research）。接著，Agent <strong>必須</strong>產出一個 <code>implementation_plan.md</code>（實作計畫書）存於 Artifact 目錄中。計畫書內會詳列修改檔案清單、所用技術、未解問題與驗證計畫。
+                                在中間對話區輸入開發目標。指導學生運用底部的 <strong>Add Context</strong> 功能：如果需要用到某個特定檔案，用 `@` 提及該檔；若要修改網頁樣式，可透過 **Media** 上傳老師提供的設計 Mockup。
                             </p>
                         </div>
                     </div>
                     
                     <!-- 步驟 3 -->
                     <div class="timeline-item">
-                        <div class="timeline-icon"><i class="fa-solid fa-signature"></i></div>
+                        <div class="timeline-icon"><i class="fa-solid fa-file-signature"></i></div>
                         <div class="timeline-content">
                             <span class="step-number">STEP 03</span>
-                            <h3>計畫審查與人工批准 (Approval)</h3>
+                            <h3>審查實作計畫與引導反饋 (Reviewing & Approval)</h3>
                             <p>
-                                <strong>這是教學上的核心控管點！</strong> Agent 產生計畫後會暫停執行，並向使用者發出審查請求。教師或學生在此時可以：
+                                Agent 分析完後，會在右側面板生成 <code>implementation_plan.md</code>。**這是關鍵的教學評估點**。老師可以指導學生審查計畫：
                             </p>
                             <ul class="bullet-list">
-                                <li>詳細閱讀計畫，指出邏輯盲點，藉此培養學生的程式架構評估能力。</li>
-                                <li>在計畫書中留言反饋，Agent 會自動讀取並修正計畫。</li>
-                                <li>點擊「核准 (Approve)」或在對話框中回覆「同意」，Agent 才會進入代碼寫入階段。</li>
+                                <li>點選計畫書中的行數，留下備註回饋，例如：「請注意安全性，並使用防抖 (Debounce) 處理」。</li>
+                                <li>Agent 讀取留言後會重新更新計畫。確認沒問題後，點擊最下方的 **Approve** (核准) 授權執行。</li>
                             </ul>
                         </div>
                     </div>
                     
                     <!-- 步驟 4 -->
                     <div class="timeline-item">
-                        <div class="timeline-icon"><i class="fa-solid fa-gears"></i></div>
+                        <div class="timeline-icon"><i class="fa-solid fa-list-check"></i></div>
                         <div class="timeline-content">
                             <span class="step-number">STEP 04</span>
-                            <h3>自動化執行與任務追蹤 (Execution)</h3>
+                            <h3>觀察執行清單與代碼對比 (Execution & Diff)</h3>
                             <p>
-                                獲得批准後，Agent 會建立一個 <code>task.md</code>（待辦工作清單），並開始調用編輯器與終端機工具進行開發。開發過程中，Agent 會將進行中的任務標記為 <code>[/]</code>，完成後標記為 <code>[x]</code>，以便使用者實時觀看開發進度。
+                                獲得授權後，右側會自動切換為 <code>task.md</code>，將每個檔案的修改狀態（進行中 <code>[/]</code>、完成 <code>[x]</code>）透明化呈現。點選修改中的檔案，還能以 **Diff 檢視器** 看到行與行之間被修改、刪除、新增的程式碼比對，讓學生一目了然 AI 寫程式的脈絡。
                             </p>
                         </div>
                     </div>
                     
                     <!-- 步驟 5 -->
                     <div class="timeline-item">
-                        <div class="timeline-icon"><i class="fa-solid fa-square-poll-vertical"></i></div>
+                        <div class="timeline-icon"><i class="fa-solid fa-circle-check"></i></div>
                         <div class="timeline-content">
                             <span class="step-number">STEP 05</span>
-                            <h3>視覺驗證與交付報告 (Verification)</h3>
+                            <h3>E2E 驗證與作業成果交付 (Verification)</h3>
                             <p>
-                                開發完成後，Agent 會自動啟動虛擬瀏覽器或運行測試腳本。驗證成功後，Agent 會產出一份 <code>walkthrough.md</code> 報告，詳細說明修改細節，並附上自動測試的瀏覽器截圖，作為學生向老師交作業或成果展示的依據。
+                                開發結束，Agent 會自動叫起本機瀏覽器進行畫面檢測與單元測試。測試結束後，右側會呈現網頁的實際運行成果或測試截圖，並寫入 <code>walkthrough.md</code>。學生只需將此產物目錄壓縮上傳，即完成了包含「計畫、程式碼、測試」的完整作業交付。
                             </p>
                         </div>
                     </div>
@@ -429,8 +384,8 @@
         <section id="templates" class="section-padding section-light">
             <div class="container">
                 <div class="section-header text-center">
-                    <h2 class="section-title">教師專用 Prompt 範本與範本</h2>
-                    <p class="section-subtitle">可以直接複製並在 Antigravity 中運行的情境範本，降低教學導入門檻。</p>
+                    <h2 class="section-title">教師專用 Prompt 範本</h2>
+                    <p class="section-subtitle">可以直接複製並在 Antigravity 2.0 桌面端中運行的情境範本，降低教學導入門檻。</p>
                 </div>
                 
                 <div class="tab-container">
@@ -525,12 +480,12 @@
             </div>
         </section>
 
-        <!-- 智慧 Agent 互動模擬器 -->
+        <!-- Antigravity 2.0 智慧桌面端模擬器 -->
         <section id="simulator" class="section-padding">
             <div class="container">
                 <div class="section-header text-center">
-                    <h2 class="section-title">智慧 Agent 工作流動態模擬器</h2>
-                    <p class="section-subtitle">點擊啟動，親身體驗 Antigravity 從「接收指令」到「瀏覽器視覺驗證」的完整生命週期。</p>
+                    <h2 class="section-title">Antigravity 2.0 桌面端工作流模擬器</h2>
+                    <p class="section-subtitle">點擊啟動，體驗三欄式視窗下的「新增脈絡、發送對話、審查計畫與視覺產物」流程。</p>
                 </div>
                 
                 <div class="simulator-wrapper">
@@ -569,73 +524,119 @@
                         </div>
                     </div>
                     
-                    <!-- 右側模擬運作區 -->
-                    <div class="sim-screen">
-                        <!-- 頂部視窗控制列 -->
-                        <div class="sim-screen-header">
-                            <div class="tabs-container" id="sim-screen-tabs">
-                                <button class="tab-title active" data-panel="panel-terminal"><i class="fa-solid fa-terminal"></i> 終端機控制台</button>
-                                <button class="tab-title disabled" data-panel="panel-plan" id="tab-sim-plan"><i class="fa-solid fa-file-contract"></i> 實作計畫 (Plan)</button>
-                                <button class="tab-title disabled" data-panel="panel-code" id="tab-sim-code"><i class="fa-solid fa-code-compare"></i> 程式碼對比 (Diff)</button>
-                                <button class="tab-title disabled" data-panel="panel-web" id="tab-sim-web"><i class="fa-solid fa-laptop"></i> 虛擬瀏覽器</button>
+                    <!-- 右側模擬官方 2.0 桌面端 -->
+                    <div class="sim-desktop-app">
+                        <!-- 頂部視窗列 -->
+                        <div class="sim-app-header">
+                            <div class="sim-app-title-bar">
+                                <div class="app-dots">
+                                    <span class="dot-btn d-close"></span>
+                                    <span class="dot-btn d-minimize"></span>
+                                    <span class="dot-btn d-maximize"></span>
+                                </div>
+                                <div class="app-title-text font-outfit">Antigravity 2.0 - Active Workspace</div>
                             </div>
-                            <div class="sim-system-status">
-                                <span class="pulse-dot" id="sim-pulse"></span>
-                                <span id="sim-actuator-text">Offline</span>
+                            <div class="sim-app-status-bar">
+                                <span class="app-pulse-dot" id="sim-pulse"></span>
+                                <span id="sim-actuator-text" style="color: var(--text-muted);">Offline</span>
                             </div>
                         </div>
                         
-                        <!-- 視窗主體 -->
-                        <div class="sim-screen-body">
-                            <!-- 終端機控制台 -->
-                            <div id="panel-terminal" class="sim-panel active font-fira-code">
-                                <div class="terminal-output" id="sim-terminal-log">
-                                    <div class="t-muted">// Antigravity 智慧工作流模擬器</div>
-                                    <div class="t-muted">// 請於左側選擇情境並點擊「啟動 Agent 模擬」...</div>
+                        <!-- 三欄佈局主體 -->
+                        <div class="sim-app-layout">
+                            <!-- 1. 左側欄：專案樹 -->
+                            <div class="sim-col-left font-primary">
+                                <div class="col-section-title">Projects Explorer</div>
+                                <div class="sim-proj-folder open">
+                                    <i class="fa-solid fa-folder-open"></i> <span id="sim-proj-name">my-project</span>
+                                </div>
+                                <div class="sim-proj-files-list">
+                                    <div class="sim-proj-file" id="file-html"><i class="fa-brands fa-html5"></i> index.html</div>
+                                    <div class="sim-proj-file" id="file-css"><i class="fa-brands fa-css3-alt"></i> style.css</div>
+                                    <div class="sim-proj-file" id="file-js"><i class="fa-square-js"></i> app.js</div>
                                 </div>
                             </div>
                             
-                            <!-- 實作計畫 -->
-                            <div id="panel-plan" class="sim-panel">
-                                <div class="plan-header">
-                                    <span class="plan-file-path"><i class="fa-regular fa-file-lines"></i> implementation_plan.md</span>
-                                    <div class="plan-badge">等待審查</div>
-                                </div>
-                                <div class="plan-content" id="sim-plan-md">
-                                    <!-- 動態生成計畫 -->
-                                </div>
-                                <div class="plan-approval-gate" id="sim-approval-gate">
-                                    <div class="gate-message">
-                                        <i class="fa-solid fa-triangle-exclamation"></i>
-                                        <span>偵測到實作計畫！Antigravity 已暫停，等待您的安全審查。</span>
+                            <!-- 2. 中間欄：對話對答區 -->
+                            <div class="sim-col-center">
+                                <div class="sim-chat-history font-primary" id="sim-chat-box">
+                                    <!-- 初始歡迎語 -->
+                                    <div class="sim-chat-message bot">
+                                        <div class="msg-sender"><i class="fa-solid fa-robot"></i> Antigravity Agent</div>
+                                        <div class="msg-text">您好！我是 Antigravity。已載入您的專案資料夾。請點擊左側「啟動 Agent 模擬」開始。</div>
                                     </div>
-                                    <button class="btn btn-success" id="btn-approve-plan">
-                                        <i class="fa-solid fa-thumbs-up"></i> 批准此計畫，授權 Agent 開始執行
-                                    </button>
+                                </div>
+                                
+                                <!-- 底部輸入框與 Add Context 選單 -->
+                                <div class="sim-input-area">
+                                    <!-- Add Context 下拉選單 (點擊切換顯示) -->
+                                    <div class="sim-context-dropdown-menu" id="sim-dropdown-menu">
+                                        <div class="context-item" onclick="triggerSimDropdownAction('Media')"><i class="fa-regular fa-image"></i> Media <span class="item-desc">圖片/錄影</span></div>
+                                        <div class="context-item" onclick="triggerSimDropdownAction('Mentions')"><i class="fa-solid fa-at"></i> Mentions <span class="item-desc">引用檔案/程式碼</span></div>
+                                        <div class="context-item" onclick="triggerSimDropdownAction('Actions')"><i class="fa-solid fa-bolt"></i> Actions <span class="item-desc">執行快捷動作</span></div>
+                                        <div class="context-item" onclick="triggerSimDropdownAction('Browser')"><i class="fa-brands fa-chrome"></i> Browser <span class="item-desc">連結瀏覽器/截圖</span></div>
+                                    </div>
+                                    
+                                    <div class="sim-input-bar">
+                                        <button class="sim-btn-add-context" id="btn-sim-context">
+                                            <i class="fa-solid fa-plus"></i> Add Context
+                                        </button>
+                                        <div class="sim-text-input-placeholder" id="sim-input-text-placeholder">
+                                            輸入您的 Prompt 或使用 Add Context...
+                                        </div>
+                                        <button class="sim-btn-send" disabled><i class="fa-solid fa-arrow-up"></i></button>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <!-- 程式碼對比 -->
-                            <div id="panel-code" class="sim-panel">
-                                <div class="diff-header">
-                                    <span class="diff-file-path"><i class="fa-solid fa-file-code"></i> index.html (代碼變更)</span>
+                            <!-- 3. 右側欄：Artifacts 產物區 -->
+                            <div class="sim-col-right">
+                                <div class="sim-artifacts-header">
+                                    <button class="art-tab active" data-tab-panel="sim-panel-plan" id="art-tab-plan"><i class="fa-solid fa-file-contract"></i> 計畫 (Plan)</button>
+                                    <button class="art-tab disabled" data-tab-panel="sim-panel-diff" id="art-tab-diff"><i class="fa-solid fa-code-compare"></i> 代碼變更 (Diff)</button>
+                                    <button class="art-tab disabled" data-tab-panel="sim-panel-proof" id="art-tab-proof"><i class="fa-solid fa-laptop-code"></i> 視覺驗證 (Browser)</button>
                                 </div>
-                                <div class="diff-body font-fira-code" id="sim-diff-content">
-                                    <!-- 動態生成 Diff -->
-                                </div>
-                            </div>
-                            
-                            <!-- 虛擬瀏覽器 -->
-                            <div id="panel-web" class="sim-panel p-0 flex-column">
-                                <div class="virtual-browser-header">
-                                    <div class="browser-nav-btn"><i class="fa-solid fa-arrow-left"></i></div>
-                                    <div class="browser-nav-btn"><i class="fa-solid fa-arrow-right"></i></div>
-                                    <div class="browser-nav-btn"><i class="fa-solid fa-rotate-right"></i></div>
-                                    <div class="virtual-address-bar" id="sim-browser-url">http://localhost:3000</div>
-                                    <div class="virtual-browser-status" id="sim-browser-status">Loading...</div>
-                                </div>
-                                <div class="virtual-browser-viewport" id="sim-browser-viewport">
-                                    <!-- 動態渲染虛擬網頁 -->
+                                <div class="sim-artifacts-body">
+                                    <!-- Plan Panel -->
+                                    <div id="sim-panel-plan" class="art-panel active">
+                                        <div class="plan-header-line">
+                                            <span class="plan-file-path font-mono"><i class="fa-regular fa-file-lines"></i> implementation_plan.md</span>
+                                            <span class="plan-status-badge" id="sim-plan-badge">尚未生成</span>
+                                        </div>
+                                        <div class="plan-rendered-content" id="sim-plan-md-box">
+                                            <div class="art-placeholder-text">Agent 啟動後，實作計畫書將會在此動態呈現。</div>
+                                        </div>
+                                        <!-- Plan Approval Gate -->
+                                        <div class="plan-approval-gate-sim" id="sim-approval-gate" style="display: none;">
+                                            <div class="gate-warning-msg">
+                                                <i class="fa-solid fa-triangle-exclamation"></i> <span>偵測到新實作計畫！請審查。</span>
+                                            </div>
+                                            <button class="btn btn-success btn-sm btn-block" id="btn-approve-plan">
+                                                <i class="fa-solid fa-thumbs-up"></i> 批准此計畫，授權 Agent 執行
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Diff Panel -->
+                                    <div id="sim-panel-diff" class="art-panel">
+                                        <div class="diff-header-line">
+                                            <span class="diff-file-path font-mono"><i class="fa-solid fa-file-code"></i> 程式碼異動對比</span>
+                                        </div>
+                                        <div class="diff-rendered-content font-fira-code" id="sim-diff-box">
+                                            <!-- 代碼對比 -->
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Proof Panel (Browser) -->
+                                    <div id="sim-panel-proof" class="art-panel p-0 flex-column">
+                                        <div class="sim-browser-bar">
+                                            <span class="browser-address" id="sim-browser-url-text">http://localhost:3000</span>
+                                            <span class="browser-status" id="sim-browser-status-badge">Offline</span>
+                                        </div>
+                                        <div class="sim-browser-viewport-box" id="sim-browser-viewport">
+                                            <!-- 虛擬瀏覽器畫面 -->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -645,7 +646,7 @@
         </section>
 
         <!-- 內部設定與斜線指令 -->
-        <section id="settings" class="section-padding section-light">
+        <section id="settings" class="section-padding">
             <div class="container">
                 <div class="section-header text-center">
                     <h2 class="section-title">內部設定與斜線指令手冊</h2>
@@ -668,7 +669,7 @@
                             <div class="command-item">
                                 <span class="cmd-name">/schedule</span>
                                 <div class="cmd-desc">
-                                    <strong>排程任務</strong>：可設定一次性倒數計時器或 Recurring Cron（循環任務）。例如：每隔 5 分鐘自動運行一次健康檢查，或在一小時後提醒檢查代碼打包進度。
+                                    <strong>排程任務</strong>：可設定一次性倒數計時器或 Recurring Cron（循環任務）。例如：每隔 5 分鐘自動運行一次量測，或在一小時後提醒檢查代碼。
                                 </div>
                             </div>
                             <div class="command-item">
@@ -727,7 +728,7 @@
     <footer>
         <div class="container footer-container">
             <div class="footer-logo">
-                <span class="gradient-text font-outfit font-weight-800">Antigravity</span>
+                <span class="gradient-text font-outfit font-weight-800">Antigravity 2.0</span>
                 <p>Google DeepMind Advanced Agentic Coding 智慧開發平台中文教學指南</p>
             </div>
             <div class="footer-meta">
